@@ -1,0 +1,3036 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sudheer Kade — Senior Creative Head & Brand Identity Architect</title>
+
+  <!-- Google Fonts: Syne (Display), Plus Jakarta Sans (Body), JetBrains Mono (Indices/Tags) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            obsidian: '#0B0B0D',
+            obsidianLight: '#141418',
+            obsidianCard: '#18181D',
+            cream: '#F6F4EF',
+            creamDark: '#EBE7DE',
+            amberGold: '#F59E0B',
+            amberBright: '#FBBF24',
+            coralAccent: '#F97316',
+          },
+          animation: {
+            'spin-slow': 'spin 18s linear infinite',
+            'marquee-left': 'marqueeLeft 32s linear infinite',
+            'marquee-right': 'marqueeRight 36s linear infinite',
+            'pulse-glow': 'pulseGlow 2.4s ease-in-out infinite',
+            'float-subtle': 'floatSubtle 5s ease-in-out infinite',
+          },
+          keyframes: {
+            marqueeLeft: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            marqueeRight: {
+              '0%': { transform: 'translateX(-50%)' },
+              '100%': { transform: 'translateX(0%)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: 1, transform: 'scale(1)' },
+              '50%': { opacity: 0.45, transform: 'scale(1.35)' },
+            },
+            floatSubtle: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-8px)' },
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Custom Base & Editorial Polish */
+    :root {
+      --obsidian: #0B0B0D;
+      --cream: #F6F4EF;
+      --amber: #F59E0B;
+      --coral: #F97316;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0B0B0D;
+      color: #F6F4EF;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Hide default cursor on desktop devices with fine pointer for custom magnetic cursor */
+    @media (hover: hover) and (pointer: fine) {
+      body.custom-cursor-active,
+      body.custom-cursor-active a,
+      body.custom-cursor-active button,
+      body.custom-cursor-active [data-cursor] {
+        cursor: none !important;
+      }
+    }
+
+    /* Subtle Editorial Grain Overlay */
+    .noise-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9990;
+      opacity: 0.028;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Architectural Grid Pattern */
+    .bg-grid-dark {
+      background-size: 48px 48px;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    }
+
+    .bg-grid-light {
+      background-size: 48px 48px;
+      background-image:
+        linear-gradient(to right, rgba(11, 11, 13, 0.045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(11, 11, 13, 0.045) 1px, transparent 1px);
+    }
+
+    /* Scroll Reveal States */
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.95) translateY(20px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-scale.is-visible {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    /* Hero Masked Line Reveal */
+    .hero-line-mask {
+      overflow: hidden;
+      display: block;
+    }
+    .hero-line-inner {
+      display: inline-block;
+      transform: translateY(108%);
+      opacity: 0;
+      animation: heroLineRise 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes heroLineRise {
+      to {
+        transform: translateY(0%);
+        opacity: 1;
+      }
+    }
+
+    /* 3D Tilt Card & Specular Glare */
+    .tilt-card {
+      transform-style: preserve-3d;
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .tilt-card .glare-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      background: radial-gradient(circle at var(--glare-x, 50%) var(--glare-y, 50%), rgba(245, 158, 11, 0.16), transparent 65%);
+      z-index: 2;
+    }
+    .tilt-card:hover .glare-layer {
+      opacity: 1;
+    }
+
+    /* Vector Bounding Box Handle Animation */
+    .vector-handle {
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.25s ease;
+    }
+    .vector-box-group:hover .vector-handle.tl { transform: translate(-4px, -4px) scale(1.25); background-color: #F59E0B; }
+    .vector-box-group:hover .vector-handle.tr { transform: translate(4px, -4px) scale(1.25); background-color: #F59E0B; }
+    .vector-box-group:hover .vector-handle.bl { transform: translate(-4px, 4px) scale(1.25); background-color: #F59E0B; }
+    .vector-box-group:hover .vector-handle.br { transform: translate(4px, 4px) scale(1.25); background-color: #F59E0B; }
+
+    /* Marquee Pause on Hover */
+    .marquee-wrapper:hover .animate-marquee-left,
+    .marquee-wrapper:hover .animate-marquee-right {
+      animation-play-state: paused;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0B0D;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #27272F;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #F59E0B;
+    }
+
+    /* Equalizer Bars for Showreel Cards */
+    @keyframes eqBar {
+      0%, 100% { height: 22%; }
+      50% { height: 92%; }
+    }
+    .eq-bar {
+      animation: eqBar 1.1s ease-in-out infinite;
+    }
+    .eq-bar:nth-child(2) { animation-delay: 0.18s; }
+    .eq-bar:nth-child(3) { animation-delay: 0.36s; }
+    .eq-bar:nth-child(4) { animation-delay: 0.12s; }
+    .eq-bar:nth-child(5) { animation-delay: 0.45s; }
+
+    /* Print Styles for CV Modal */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #cv-printable-area, #cv-printable-area * {
+        visibility: visible;
+      }
+      #cv-printable-area {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: white !important;
+        color: black !important;
+        padding: 24px !important;
+      }
+    }
+  </style>
+</head>
+<body class="selection:bg-amberGold selection:text-obsidian">
+
+  <!-- Subtle Film Grain Overlay -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Top Scroll Progress Bar -->
+  <div class="fixed top-0 left-0 right-0 h-[3px] z-[100] bg-white/5 pointer-events-none">
+    <div id="scroll-progress-bar" class="h-full w-0 bg-gradient-to-r from-amberGold via-amberBright to-coralAccent transition-[width] duration-75 ease-out"></div>
+  </div>
+
+  <!-- Custom Magnetic Cursor Follower (Desktop Only) -->
+  <div id="custom-cursor" class="fixed top-0 left-0 pointer-events-none z-[9999] hidden lg:flex items-center justify-center -translate-x-1/2 -translate-y-1/2 transition-[width,height,background-color,border-color] duration-200 ease-out w-5 h-5 rounded-full border border-amberGold/80 bg-amberGold/10 backdrop-blur-[1px]">
+    <span id="custom-cursor-label" class="font-mono text-[10px] font-bold tracking-widest uppercase text-obsidian opacity-0 transition-opacity duration-150 select-none"></span>
+  </div>
+
+  <!-- Toast Notification Pill -->
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-[110] translate-y-24 opacity-0 pointer-events-none transition-all duration-300 ease-out">
+    <div class="flex items-center gap-3 px-4 py-3 rounded-2xl bg-obsidianLight/95 border border-amberGold/40 text-cream shadow-2xl backdrop-blur-md">
+      <span class="w-2.5 h-2.5 rounded-full bg-amberGold animate-ping"></span>
+      <span id="toast-message" class="text-sm font-medium tracking-wide">Copied to clipboard!</span>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 1. STICKY GLASSMORPHIC NAVIGATION BAR                                 -->
+  <!-- ===================================================================== -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-4 sm:px-6 lg:px-10">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3 rounded-2xl bg-obsidian/80 backdrop-blur-xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.45)]">
+      <!-- Brand Mark with Vector Bezier Anchor Micro-Animation -->
+      <a href="#home" class="group flex items-center gap-3 focus:outline-none" data-cursor="HOME">
+        <div class="relative w-10 h-10 rounded-xl bg-obsidianCard border border-white/15 flex items-center justify-center group-hover:border-amberGold transition-colors duration-300">
+          <!-- Corner Vector Nodes -->
+          <span class="absolute -top-1 -left-1 w-2 h-2 bg-cream border border-obsidian group-hover:bg-amberGold group-hover:scale-125 transition-all"></span>
+          <span class="absolute -top-1 -right-1 w-2 h-2 bg-cream border border-obsidian group-hover:bg-amberGold group-hover:scale-125 transition-all"></span>
+          <span class="absolute -bottom-1 -left-1 w-2 h-2 bg-cream border border-obsidian group-hover:bg-amberGold group-hover:scale-125 transition-all"></span>
+          <span class="absolute -bottom-1 -right-1 w-2 h-2 bg-cream border border-obsidian group-hover:bg-amberGold group-hover:scale-125 transition-all"></span>
+          <span class="font-display font-extrabold text-base tracking-tight text-cream group-hover:text-amberGold transition-colors">SK<span class="text-amberGold">.</span></span>
+        </div>
+        <div class="hidden sm:flex flex-col">
+          <span class="font-display font-bold text-xs tracking-wider text-cream uppercase">Sudheer Kade</span>
+          <span class="font-mono text-[10px] tracking-widest text-neutral-400 uppercase">Creative Head | Hyderabad, India</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <div class="hidden lg:flex items-center gap-1 bg-white/[0.03] p-1.5 rounded-xl border border-white/[0.06]" id="desktop-nav-links">
+        <a href="#home" data-nav="home" class="nav-pill px-3.5 py-1.5 rounded-lg font-mono text-xs font-medium tracking-wider uppercase transition-all duration-200 bg-amberGold text-obsidian font-semibold">Home</a>
+        <a href="#services" data-nav="services" class="nav-pill px-3.5 py-1.5 rounded-lg font-mono text-xs font-medium tracking-wider uppercase text-neutral-300 hover:text-cream transition-all duration-200">Services</a>
+        <a href="#gallery" data-nav="gallery" class="nav-pill px-3.5 py-1.5 rounded-lg font-mono text-xs font-medium tracking-wider uppercase text-neutral-300 hover:text-cream transition-all duration-200">Gallery</a>
+        <a href="#work" data-nav="work" class="nav-pill px-3.5 py-1.5 rounded-lg font-mono text-xs font-medium tracking-wider uppercase text-neutral-300 hover:text-cream transition-all duration-200">Work</a>
+        <a href="#career" data-nav="career" class="nav-pill px-3.5 py-1.5 rounded-lg font-mono text-xs font-medium tracking-wider uppercase text-neutral-300 hover:text-cream transition-all duration-200">Career</a>
+        <a href="#awards" data-nav="awards" class="nav-pill px-3.5 py-1.5 rounded-lg font-mono text-xs font-medium tracking-wider uppercase text-neutral-300 hover:text-cream transition-all duration-200">Awards</a>
+        <a href="#reels" data-nav="reels" class="nav-pill px-3.5 py-1.5 rounded-lg font-mono text-xs font-medium tracking-wider uppercase text-neutral-300 hover:text-cream transition-all duration-200">Reels</a>
+      </div>
+
+      <!-- Right Actions: Magnetic Let's Talk + Mobile Menu Button -->
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="magnetic-btn inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl bg-amberGold hover:bg-amberBright text-obsidian font-mono text-xs font-bold tracking-wider uppercase transition-colors shadow-[0_0_25px_rgba(245,158,11,0.3)]" data-cursor="TALK">
+          <span>Let's Talk</span>
+          <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="mobile-menu-btn" aria-label="Toggle Menu" class="lg:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-cream hover:border-amberGold/50 transition-colors">
+          <svg id="menu-icon-open" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu-drawer" class="lg:hidden hidden max-w-7xl mx-auto mt-2 p-4 rounded-2xl bg-obsidianLight/95 backdrop-blur-xl border border-white/10 shadow-2xl">
+      <div class="grid grid-cols-2 gap-2">
+        <a href="#home" class="mobile-nav-link px-4 py-3 rounded-xl bg-white/5 font-mono text-xs uppercase tracking-wider text-cream hover:bg-amberGold hover:text-obsidian transition-colors">01. Home</a>
+        <a href="#services" class="mobile-nav-link px-4 py-3 rounded-xl bg-white/5 font-mono text-xs uppercase tracking-wider text-cream hover:bg-amberGold hover:text-obsidian transition-colors">02. Services</a>
+        <a href="#gallery" class="mobile-nav-link px-4 py-3 rounded-xl bg-white/5 font-mono text-xs uppercase tracking-wider text-cream hover:bg-amberGold hover:text-obsidian transition-colors">03. Mockups</a>
+        <a href="#work" class="mobile-nav-link px-4 py-3 rounded-xl bg-white/5 font-mono text-xs uppercase tracking-wider text-cream hover:bg-amberGold hover:text-obsidian transition-colors">04. Brands (17)</a>
+        <a href="#career" class="mobile-nav-link px-4 py-3 rounded-xl bg-white/5 font-mono text-xs uppercase tracking-wider text-cream hover:bg-amberGold hover:text-obsidian transition-colors">05. Career</a>
+        <a href="#awards" class="mobile-nav-link px-4 py-3 rounded-xl bg-white/5 font-mono text-xs uppercase tracking-wider text-cream hover:bg-amberGold hover:text-obsidian transition-colors">06. Awards</a>
+        <a href="#reels" class="mobile-nav-link col-span-2 px-4 py-3 rounded-xl bg-white/5 font-mono text-xs uppercase tracking-wider text-cream hover:bg-amberGold hover:text-obsidian transition-colors">07. Reels &amp; Motion</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- 2. HERO SECTION (DARK OBSIDIAN EDITORIAL BAND)                        -->
+  <!-- ===================================================================== -->
+  <section id="home" class="relative min-h-screen flex flex-col justify-between pt-28 sm:pt-36 pb-0 bg-obsidian bg-grid-dark overflow-hidden">
+    <!-- Ambient Radial Glows -->
+    <div class="absolute top-24 -left-32 w-[480px] h-[480px] rounded-full bg-amberGold/10 blur-[130px] pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute bottom-24 -right-32 w-[440px] h-[440px] rounded-full bg-coralAccent/10 blur-[130px] pointer-events-none" aria-hidden="true"></div>
+
+    <!-- Main Hero Grid Container -->
+    <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-10 my-auto py-8 sm:py-12 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+
+        <!-- Left 8 Columns: Display Typography & Editorial Bio -->
+        <div class="lg:col-span-8 space-y-6 sm:space-y-8">
+          <!-- Eyebrow Status Badge -->
+          <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-sm">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amberGold opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-amberGold"></span>
+            </span>
+            <span class="font-mono text-[11px] sm:text-xs font-semibold tracking-[0.2em] text-amberGold uppercase">
+              CREATIVE HEAD | HYDERABAD, INDIA
+            </span>
+          </div>
+
+          <!-- Massive Staggered Reveal Headline with Interactive Illustrator Bounding Box -->
+          <div class="vector-box-group relative inline-block p-2 sm:p-4 -ml-2 sm:-ml-4 border border-dashed border-amberGold/30 hover:border-amberGold/80 rounded-2xl transition-colors duration-300">
+            <!-- Vector Bezier Corner Handles -->
+            <span class="vector-handle tl absolute -top-1.5 -left-1.5 w-3 h-3 bg-cream border-2 border-obsidian rounded-[2px]"></span>
+            <span class="vector-handle tr absolute -top-1.5 -right-1.5 w-3 h-3 bg-cream border-2 border-obsidian rounded-[2px]"></span>
+            <span class="vector-handle bl absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-cream border-2 border-obsidian rounded-[2px]"></span>
+            <span class="vector-handle br absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-cream border-2 border-obsidian rounded-[2px]"></span>
+            <!-- Midpoint Bezier Tangent Handle -->
+            <span class="hidden sm:inline-flex items-center gap-1.5 absolute -top-3.5 right-6 px-2 py-0.5 rounded bg-obsidian border border-amberGold/40 font-mono text-[10px] text-amberGold">
+              <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                <circle cx="11" cy="11" r="2"></circle>
+              </svg>
+              VECTOR MASTER.AI
+            </span>
+
+            <h1 class="font-display font-extrabold text-5xl sm:text-7xl md:text-8xl xl:text-[6.5rem] leading-[0.92] tracking-tight uppercase text-cream">
+              <span class="hero-line-mask">
+                <span class="hero-line-inner" style="animation-delay: 0.08s;">SUDHEER</span>
+              </span>
+              <span class="hero-line-mask">
+                <span class="hero-line-inner text-transparent bg-clip-text bg-gradient-to-r from-amberGold via-amberBright to-coralAccent" style="animation-delay: 0.22s;">KADE</span>
+              </span>
+            </h1>
+          </div>
+
+          <!-- Subtitle & Editorial Value Proposition -->
+          <div class="space-y-4 max-w-2xl">
+            <p class="font-mono text-xs sm:text-sm font-semibold tracking-wider text-amberGold/90 uppercase leading-relaxed">
+              SENIOR CREATIVE HEAD &nbsp;|&nbsp; BRAND IDENTITY ARCHITECT &nbsp;|&nbsp; GRAPHIC DESIGNER &amp; DIGITAL STRATEGIST
+            </p>
+            <p class="text-base sm:text-xl text-neutral-300 leading-relaxed font-normal">
+              9+ years transforming ambitious brands into unforgettable visual icons: <span class="text-cream font-semibold">identity, packaging, campaigns and motion.</span> Turning complex brand stories into bold, print-ready, and screen-commanding visual experiences.
+            </p>
+          </div>
+
+          <!-- Interactive Magnetic CTA Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#work" class="magnetic-btn group inline-flex items-center gap-3 px-7 py-4 rounded-2xl bg-amberGold hover:bg-amberBright text-obsidian font-mono text-xs sm:text-sm font-bold tracking-wider uppercase shadow-[0_12px_35px_rgba(245,158,11,0.3)] transition-all" data-cursor="EXPLORE">
+              <span>View Selected Work</span>
+              <span class="w-6 h-6 rounded-lg bg-obsidian/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+                </svg>
+              </span>
+            </a>
+
+            <button id="open-cv-modal-btn" type="button" class="magnetic-btn group inline-flex items-center gap-3 px-7 py-4 rounded-2xl bg-white/[0.04] hover:bg-white/[0.09] border border-white/15 hover:border-amberGold/60 text-cream font-mono text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all" data-cursor="CV PDF">
+              <svg class="w-4 h-4 text-amberGold transition-transform duration-300 group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span>Download CV</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right 4 Columns: Kinetic 9+ Years Badge & Featured Highlight Card -->
+        <div class="lg:col-span-4 flex flex-col items-center lg:items-end justify-center gap-6">
+          <!-- Rotating Kinetic Typography Ring around 9+ Years Stat -->
+          <div class="relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center animate-float-subtle">
+            <!-- Outer Glow Ring -->
+            <div class="absolute inset-4 rounded-full bg-gradient-to-tr from-amberGold/20 via-transparent to-coralAccent/20 blur-xl"></div>
+
+            <!-- Rotating Circular SVG Text -->
+            <svg class="w-full h-full animate-spin-slow" viewBox="0 0 200 200">
+              <defs>
+                <path id="circleTextPath" d="M 100, 100 m -76, 0 a 76,76 0 1,1 152,0 a 76,76 0 1,1 -152,0" />
+              </defs>
+              <text fill="#F59E0B" font-family="JetBrains Mono, monospace" font-size="10.3" font-weight="600" letter-spacing="2.85">
+                <textPath href="#circleTextPath" startOffset="0%">
+                  BRANDING • PACKAGING • ADVERTISING • MOTION • SOCIAL • PRINT •
+                </textPath>
+              </text>
+            </svg>
+
+            <!-- Center Stat Core -->
+            <div class="absolute inset-12 rounded-full bg-obsidianCard border border-white/15 shadow-2xl flex flex-col items-center justify-center text-center p-4">
+              <span class="font-display font-extrabold text-5xl sm:text-6xl text-cream tracking-tight leading-none">9<span class="text-amberGold">+</span></span>
+              <span class="font-mono text-xs font-bold tracking-[0.25em] text-neutral-300 uppercase mt-2">YEARS</span>
+              <span class="font-mono text-[10px] text-amberGold/80 mt-1">17+ ICONIC BRANDS</span>
+            </div>
+          </div>
+
+          <!-- Quick Proof Strip -->
+          <div class="w-full max-w-xs p-4 rounded-2xl bg-obsidianCard/90 border border-white/10 backdrop-blur-md flex items-center justify-between gap-4">
+            <div>
+              <p class="font-mono text-[10px] uppercase tracking-widest text-neutral-400">Broadcast Recognition</p>
+              <p class="font-display font-bold text-sm text-cream mt-0.5">Featured on PVR Cinemas</p>
+            </div>
+            <span class="px-2.5 py-1 rounded-lg bg-amberGold/15 border border-amberGold/30 font-mono text-[10px] font-bold text-amberGold uppercase">4K SPOT</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Infinite Smooth Dual-Direction Marquee Ticker Strip -->
+    <div class="marquee-wrapper w-full border-y border-white/10 bg-obsidianLight/90 py-3.5 overflow-hidden select-none relative z-10">
+      <div class="flex whitespace-nowrap animate-marquee-left">
+        <div class="flex items-center gap-8 px-4 font-mono text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-neutral-300">
+          <span>BRANDING</span><span class="text-amberGold">✦</span>
+          <span>PACKAGING</span><span class="text-amberGold">✦</span>
+          <span>ADVERTISING</span><span class="text-amberGold">✦</span>
+          <span>MOTION</span><span class="text-amberGold">✦</span>
+          <span>SOCIAL</span><span class="text-amberGold">✦</span>
+          <span>PRINT</span><span class="text-amberGold">✦</span>
+          <span>VECTOR ARCHITECTURE</span><span class="text-amberGold">✦</span>
+          <span>3D MOCKUPS</span><span class="text-amberGold">✦</span>
+          <span>LOTTIE UI</span><span class="text-amberGold">✦</span>
+        </div>
+        <!-- Duplicate for seamless loop -->
+        <div class="flex items-center gap-8 px-4 font-mono text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-neutral-300" aria-hidden="true">
+          <span>BRANDING</span><span class="text-amberGold">✦</span>
+          <span>PACKAGING</span><span class="text-amberGold">✦</span>
+          <span>ADVERTISING</span><span class="text-amberGold">✦</span>
+          <span>MOTION</span><span class="text-amberGold">✦</span>
+          <span>SOCIAL</span><span class="text-amberGold">✦</span>
+          <span>PRINT</span><span class="text-amberGold">✦</span>
+          <span>VECTOR ARCHITECTURE</span><span class="text-amberGold">✦</span>
+          <span>3D MOCKUPS</span><span class="text-amberGold">✦</span>
+          <span>LOTTIE UI</span><span class="text-amberGold">✦</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 3. WHAT I DO — CORE DESIGN SERVICES (WARM CREAM EDITORIAL BAND)       -->
+  <!-- ===================================================================== -->
+  <section id="services" class="py-20 sm:py-28 bg-cream bg-grid-light text-obsidian relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+
+      <!-- Section Header -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14 reveal-up">
+        <div class="space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-obsidian/5 border border-obsidian/10">
+            <span class="w-2 h-2 rounded-full bg-amberGold"></span>
+            <span class="font-mono text-xs font-bold tracking-[0.2em] uppercase text-obsidian/80">WHAT I DO</span>
+          </div>
+          <h2 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight uppercase text-obsidian">
+            CORE DESIGN SERVICES
+          </h2>
+        </div>
+        <p class="max-w-md text-base sm:text-lg text-neutral-700 leading-relaxed">
+          A full-stack creative practice: from the first logo sketch to the final print-ready master and motion file.
+        </p>
+      </div>
+
+      <!-- 01 to 06 Interactive Bento Grid with 3D Tilt & Specular Glare -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Service 01 -->
+        <article class="tilt-card reveal-up group rounded-3xl bg-white border border-obsidian/10 hover:border-amberGold p-7 sm:p-8 shadow-sm hover:shadow-2xl flex flex-col justify-between" data-cursor="01">
+          <div class="glare-layer"></div>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-mono text-sm font-bold px-3 py-1 rounded-xl bg-obsidian text-amberGold">01</span>
+              <div class="w-12 h-12 rounded-2xl bg-cream border border-obsidian/10 flex items-center justify-center group-hover:bg-amberGold group-hover:border-amberGold transition-colors duration-300">
+                <!-- Vector Bezier Pen Nib SVG -->
+                <svg class="w-6 h-6 text-obsidian transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l7-7 3 3-7 7-3-3z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2 2l7.586 7.586" />
+                  <circle cx="11" cy="11" r="2" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-display font-bold text-xl sm:text-2xl text-obsidian mb-3 group-hover:text-amber-700 transition-colors">
+              Brand Identity &amp; Logo Architecture
+            </h3>
+            <p class="text-sm sm:text-base text-neutral-600 leading-relaxed mb-6">
+              Complete brand books, custom logotypes, typography systems, color psychology, and high-precision vectorization converting legacy artwork into scalable master assets.
+            </p>
+          </div>
+          <div class="relative z-10 flex flex-wrap gap-2 pt-4 border-t border-obsidian/10">
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-cream text-obsidian">AI</span>
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-cream text-obsidian">EPS</span>
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-cream text-obsidian">SVG</span>
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-cream text-obsidian">PRINT-READY PDF</span>
+          </div>
+        </article>
+
+        <!-- Service 02 -->
+        <article class="tilt-card reveal-up group rounded-3xl bg-white border border-obsidian/10 hover:border-amberGold p-7 sm:p-8 shadow-sm hover:shadow-2xl flex flex-col justify-between" style="transition-delay: 60ms;" data-cursor="02">
+          <div class="glare-layer"></div>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-mono text-sm font-bold px-3 py-1 rounded-xl bg-obsidian text-amberGold">02</span>
+              <div class="w-12 h-12 rounded-2xl bg-cream border border-obsidian/10 flex items-center justify-center group-hover:bg-amberGold group-hover:border-amberGold transition-colors duration-300">
+                <!-- 3D Box Packaging SVG -->
+                <svg class="w-6 h-6 text-obsidian transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                  <line x1="12" y1="22.08" x2="12" y2="12" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-display font-bold text-xl sm:text-2xl text-obsidian mb-3 group-hover:text-amber-700 transition-colors">
+              Packaging &amp; Label Design
+            </h3>
+            <p class="text-sm sm:text-base text-neutral-600 leading-relaxed mb-6">
+              Tactile retail packaging, precision dielines, Ayurvedic compliance layouts, luxury boxes, pouches, and photorealistic 3D product mockups built to dominate shelves.
+            </p>
+          </div>
+          <div class="relative z-10 flex flex-wrap gap-2 pt-4 border-t border-obsidian/10">
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-cream text-obsidian">DIELINE</span>
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-cream text-obsidian">3D RENDER</span>
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-cream text-obsidian">AI MASTER</span>
+          </div>
+        </article>
+
+        <!-- Service 03 -->
+        <article class="tilt-card reveal-up group rounded-3xl bg-white border border-obsidian/10 hover:border-amberGold p-7 sm:p-8 shadow-sm hover:shadow-2xl flex flex-col justify-between" style="transition-delay: 120ms;" data-cursor="03">
+          <div class="glare-layer"></div>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-mono text-sm font-bold px-3 py-1 rounded-xl bg-obsidian text-amberGold">03</span>
+              <div class="w-12 h-12 rounded-2xl bg-cream border border-obsidian/10 flex items-center justify-center group-hover:bg-amberGold group-hover:border-amberGold transition-colors duration-300">
+                <!-- Cinema / Megaphone Campaign SVG -->
+                <svg class="w-6 h-6 text-obsidian transition-transform duration-300 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
+                  <line x1="7" y1="2" x2="7" y2="22" />
+                  <line x1="17" y1="2" x2="17" y2="22" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <line x1="2" y1="7" x2="7" y2="7" />
+                  <line x1="2" y1="17" x2="7" y2="17" />
+                  <line x1="17" y1="17" x2="22" y2="17" />
+                  <line x1="17" y1="7" x2="22" y2="7" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-display font-bold text-xl sm:text-2xl text-obsidian mb-3 group-hover:text-amber-700 transition-colors">
+              Advertising &amp; 360° Campaigns
+            </h3>
+            <p class="text-sm sm:text-base text-neutral-600 leading-relaxed mb-6">
+              High-impact print ads, cinema commercials (featured on PVR Cinemas), outdoor hoardings, festival campaigns, and digital launch creatives engineered for mass recall.
+            </p>
+          </div>
+          <div class="relative z-10 flex flex-wrap gap-2 pt-4 border-t border-obsidian/10">
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-cream text-obsidian">PVR CINEMA</span>
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-cream text-obsidian">OOH</span>
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-cream text-obsidian">4K MP4</span>
+          </div>
+        </article>
+
+        <!-- Service 04 -->
+        <article class="tilt-card reveal-up group rounded-3xl bg-white border border-obsidian/10 hover:border-amberGold p-7 sm:p-8 shadow-sm hover:shadow-2xl flex flex-col justify-between" data-cursor="04">
+          <div class="glare-layer"></div>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-mono text-sm font-bold px-3 py-1 rounded-xl bg-obsidian text-amberGold">04</span>
+              <div class="w-12 h-12 rounded-2xl bg-cream border border-obsidian/10 flex items-center justify-center group-hover:bg-amberGold group-hover:border-amberGold transition-colors duration-300">
+                <!-- Motion Play / Keyframe SVG -->
+                <svg class="w-6 h-6 text-obsidian transition-transform duration-300 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-display font-bold text-xl sm:text-2xl text-obsidian mb-3 group-hover:text-amber-700 transition-colors">
+              Reels &amp; UI/UX Animation
+            </h3>
+            <p class="text-sm sm:text-base text-neutral-600 leading-relaxed mb-6">
+              Commercial ad reels, product explainer videos, dynamic social media motion assets, and lightweight interactive Lottie micro-animations for mobile and web interfaces.
+            </p>
+          </div>
+          <div class="relative z-10 flex flex-wrap gap-2 pt-4 border-t border-obsidian/10">
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-cream text-obsidian">LOTTIE JSON</span>
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-cream text-obsidian">MP4</span>
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-cream text-obsidian">MOV</span>
+          </div>
+        </article>
+
+        <!-- Service 05 -->
+        <article class="tilt-card reveal-up group rounded-3xl bg-white border border-obsidian/10 hover:border-amberGold p-7 sm:p-8 shadow-sm hover:shadow-2xl flex flex-col justify-between" style="transition-delay: 60ms;" data-cursor="05">
+          <div class="glare-layer"></div>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-mono text-sm font-bold px-3 py-1 rounded-xl bg-obsidian text-amberGold">05</span>
+              <div class="w-12 h-12 rounded-2xl bg-cream border border-obsidian/10 flex items-center justify-center group-hover:bg-amberGold group-hover:border-amberGold transition-colors duration-300">
+                <!-- Social Grid SVG -->
+                <svg class="w-6 h-6 text-obsidian transition-transform duration-300 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" rx="1" />
+                  <rect x="14" y="3" width="7" height="7" rx="1" />
+                  <rect x="14" y="14" width="7" height="7" rx="1" />
+                  <rect x="3" y="14" width="7" height="7" rx="1" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-display font-bold text-xl sm:text-2xl text-obsidian mb-3 group-hover:text-amber-700 transition-colors">
+              Social Media &amp; Digital Strategy
+            </h3>
+            <p class="text-sm sm:text-base text-neutral-600 leading-relaxed mb-6">
+              Scroll-stopping visual grids, performance ad creatives, launch storytelling, festive campaign visuals, and cohesive digital brand guidelines across platforms.
+            </p>
+          </div>
+          <div class="relative z-10 flex flex-wrap gap-2 pt-4 border-t border-obsidian/10">
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-cream text-obsidian">GRIDS</span>
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-cream text-obsidian">STORIES</span>
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-cream text-obsidian">ADS</span>
+          </div>
+        </article>
+
+        <!-- Service 06 -->
+        <article class="tilt-card reveal-up group rounded-3xl bg-white border border-obsidian/10 hover:border-amberGold p-7 sm:p-8 shadow-sm hover:shadow-2xl flex flex-col justify-between" style="transition-delay: 120ms;" data-cursor="06">
+          <div class="glare-layer"></div>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-mono text-sm font-bold px-3 py-1 rounded-xl bg-obsidian text-amberGold">06</span>
+              <div class="w-12 h-12 rounded-2xl bg-cream border border-obsidian/10 flex items-center justify-center group-hover:bg-amberGold group-hover:border-amberGold transition-colors duration-300">
+                <!-- Editorial Print Book SVG -->
+                <svg class="w-6 h-6 text-obsidian transition-transform duration-300 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 19.5A2.5 2.5 0 016.5 17H20" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-display font-bold text-xl sm:text-2xl text-obsidian mb-3 group-hover:text-amber-700 transition-colors">
+              Menus, Editorial &amp; Print
+            </h3>
+            <p class="text-sm sm:text-base text-neutral-600 leading-relaxed mb-6">
+              Restaurant menu architecture, corporate profiles, brochures, event collateral, and large-format environmental graphics calibrated for press-ready CMYK perfection.
+            </p>
+          </div>
+          <div class="relative z-10 flex flex-wrap gap-2 pt-4 border-t border-obsidian/10">
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-cream text-obsidian">PRESS PDF</span>
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-cream text-obsidian">CMYK MASTER</span>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Technical Arsenal & Studio Software Stack Bar -->
+      <div class="mt-12 p-6 sm:p-8 rounded-3xl bg-obsidian text-cream border border-obsidian/10 shadow-xl reveal-up">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-1">
+            <span class="font-mono text-[11px] font-bold tracking-[0.2em] text-amberGold uppercase">TECHNICAL ARSENAL</span>
+            <h4 class="font-display font-bold text-xl sm:text-2xl text-cream">Master Studio &amp; AI-Enhanced Workflow</h4>
+          </div>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="group inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.06] hover:bg-amberGold hover:text-obsidian border border-white/10 font-mono text-xs font-medium transition-all duration-200 cursor-default">
+              <span class="w-2 h-2 rounded-full bg-amberGold group-hover:bg-obsidian"></span>
+              Adobe Illustrator
+            </span>
+            <span class="group inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.06] hover:bg-amberGold hover:text-obsidian border border-white/10 font-mono text-xs font-medium transition-all duration-200 cursor-default">
+              <span class="w-2 h-2 rounded-full bg-sky-400 group-hover:bg-obsidian"></span>
+              Adobe Photoshop
+            </span>
+            <span class="group inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.06] hover:bg-amberGold hover:text-obsidian border border-white/10 font-mono text-xs font-medium transition-all duration-200 cursor-default">
+              <span class="w-2 h-2 rounded-full bg-rose-500 group-hover:bg-obsidian"></span>
+              Adobe InDesign
+            </span>
+            <span class="group inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.06] hover:bg-amberGold hover:text-obsidian border border-white/10 font-mono text-xs font-medium transition-all duration-200 cursor-default">
+              <span class="w-2 h-2 rounded-full bg-purple-400 group-hover:bg-obsidian"></span>
+              Adobe InCopy
+            </span>
+            <span class="group inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.06] hover:bg-amberGold hover:text-obsidian border border-white/10 font-mono text-xs font-medium transition-all duration-200 cursor-default">
+              <span class="w-2 h-2 rounded-full bg-indigo-400 group-hover:bg-obsidian"></span>
+              After Effects (Bodymovin Lottie)
+            </span>
+            <span class="group inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.06] hover:bg-amberGold hover:text-obsidian border border-white/10 font-mono text-xs font-medium transition-all duration-200 cursor-default">
+              <span class="w-2 h-2 rounded-full bg-orange-400 group-hover:bg-obsidian"></span>
+              Blender 3D
+            </span>
+            <span class="group inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.06] hover:bg-amberGold hover:text-obsidian border border-white/10 font-mono text-xs font-medium transition-all duration-200 cursor-default">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 group-hover:bg-obsidian"></span>
+              ComfyUI Studio
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 3.5 MOCKUPS & PACKAGING GALLERY (PROBLEM -> SOLVED CASE GRID)         -->
+  <!-- ===================================================================== -->
+  <section id="gallery" class="py-20 sm:py-28 bg-obsidianLight bg-grid-dark text-cream border-t border-white/10 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+
+      <!-- Section Header -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 reveal-up">
+        <div class="space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amberGold/10 border border-amberGold/30">
+            <span class="w-2 h-2 rounded-full bg-amberGold"></span>
+            <span class="font-mono text-xs font-bold tracking-[0.2em] uppercase text-amberGold">VISUAL ARCHIVE &amp; CASE BREAKDOWNS</span>
+          </div>
+          <h2 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight uppercase text-cream">
+            MOCKUPS &amp; PACKAGING GALLERY
+          </h2>
+        </div>
+        <p class="max-w-md text-base sm:text-lg text-neutral-400 leading-relaxed">
+          Tactile retail packaging, 3D product mockups, and commercial print systems—paired with the real-world design problems faced and how each was solved.
+        </p>
+      </div>
+
+      <!-- Filter Bar + Live "+ Add Your Mockup" Upload Trigger -->
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-10 reveal-up">
+        <div id="gallery-filter-bar" class="flex flex-wrap items-center gap-2 p-2 rounded-2xl bg-obsidian border border-white/10">
+          <button type="button" data-gallery-filter="ALL" class="gallery-filter-btn active px-4 py-2.5 rounded-xl font-mono text-xs font-bold tracking-wider uppercase transition-all duration-200 bg-amberGold text-obsidian shadow-md">
+            ALL WORK (<span id="gallery-count-all">8</span>)
+          </button>
+          <button type="button" data-gallery-filter="PACKAGING" class="gallery-filter-btn px-4 py-2.5 rounded-xl font-mono text-xs font-semibold tracking-wider uppercase transition-all duration-200 text-neutral-300 hover:text-cream hover:bg-white/5">
+            PACKAGING &amp; LABELS
+          </button>
+          <button type="button" data-gallery-filter="MOCKUPS" class="gallery-filter-btn px-4 py-2.5 rounded-xl font-mono text-xs font-semibold tracking-wider uppercase transition-all duration-200 text-neutral-300 hover:text-cream hover:bg-white/5">
+            3D &amp; BRAND MOCKUPS
+          </button>
+          <button type="button" data-gallery-filter="CAMPAIGN" class="gallery-filter-btn px-4 py-2.5 rounded-xl font-mono text-xs font-semibold tracking-wider uppercase transition-all duration-200 text-neutral-300 hover:text-cream hover:bg-white/5">
+            CAMPAIGN &amp; PRINT
+          </button>
+        </div>
+
+        <button id="open-upload-mockup-btn" type="button" class="magnetic-btn inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-2xl bg-white/[0.06] hover:bg-amberGold text-cream hover:text-obsidian border border-amberGold/50 font-mono text-xs font-bold uppercase tracking-wider transition-all shadow-lg" data-cursor="UPLOAD">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+          </svg>
+          <span>Add Your Mockup</span>
+        </button>
+      </div>
+
+      <!-- Responsive 3-Column Mockups & Packaging Grid -->
+      <div id="mockup-gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <!-- Populated dynamically via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 4. BRANDS I'VE BUILT — INTERACTIVE FILTERABLE SHOWCASE (ALL 17)       -->
+  <!-- ===================================================================== -->
+  <section id="work" class="py-20 sm:py-28 bg-obsidian bg-grid-dark text-cream relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+
+      <!-- Section Header -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 reveal-up">
+        <div class="space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amberGold/10 border border-amberGold/30">
+            <span class="w-2 h-2 rounded-full bg-amberGold"></span>
+            <span class="font-mono text-xs font-bold tracking-[0.2em] uppercase text-amberGold">FEATURED CLIENT SHOWCASE</span>
+          </div>
+          <h2 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight uppercase text-cream">
+            BRANDS I'VE BUILT
+          </h2>
+        </div>
+        <p class="max-w-md text-base sm:text-lg text-neutral-400 leading-relaxed">
+          From hyper-local culinary legends to entertainment parks, Ayurvedic wellness and luxury retail. Click any brand card to inspect deliverables.
+        </p>
+      </div>
+
+      <!-- Interactive Category Filter Bar -->
+      <div class="mb-10 reveal-up">
+        <div id="brand-filter-bar" class="flex flex-wrap items-center gap-2 sm:gap-2.5 p-2 rounded-2xl bg-obsidianLight border border-white/10">
+          <button type="button" data-filter="ALL" class="brand-filter-btn active px-4 py-2.5 rounded-xl font-mono text-xs font-bold tracking-wider uppercase transition-all duration-200 bg-amberGold text-obsidian shadow-md">
+            ALL (17)
+          </button>
+          <button type="button" data-filter="GROUP_A" class="brand-filter-btn px-4 py-2.5 rounded-xl font-mono text-xs font-semibold tracking-wider uppercase transition-all duration-200 text-neutral-300 hover:text-cream hover:bg-white/5">
+            GROUP A: FOOD &amp; HOSPITALITY (7)
+          </button>
+          <button type="button" data-filter="GROUP_B" class="brand-filter-btn px-4 py-2.5 rounded-xl font-mono text-xs font-semibold tracking-wider uppercase transition-all duration-200 text-neutral-300 hover:text-cream hover:bg-white/5">
+            GROUP B: WELLNESS &amp; AYURVEDA (3)
+          </button>
+          <button type="button" data-filter="GROUP_C" class="brand-filter-btn px-4 py-2.5 rounded-xl font-mono text-xs font-semibold tracking-wider uppercase transition-all duration-200 text-neutral-300 hover:text-cream hover:bg-white/5">
+            GROUP C: ENTERTAINMENT &amp; RETAIL (4)
+          </button>
+          <button type="button" data-filter="GROUP_D" class="brand-filter-btn px-4 py-2.5 rounded-xl font-mono text-xs font-semibold tracking-wider uppercase transition-all duration-200 text-neutral-300 hover:text-cream hover:bg-white/5">
+            GROUP D: CORPORATE &amp; LOGISTICS (3)
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic 17-Brand Cards Grid (Rendered via JS for crisp filtering & Case Study Modal) -->
+      <div id="brands-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Populated dynamically on load -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 5. THE JOURNEY — CAREER & EDUCATION TIMELINE (WARM CREAM BAND)        -->
+  <!-- ===================================================================== -->
+  <section id="career" class="py-20 sm:py-28 bg-cream bg-grid-light text-obsidian relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+
+      <!-- Section Header -->
+      <div class="space-y-3 mb-14 reveal-up">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-obsidian/5 border border-obsidian/10">
+          <span class="w-2 h-2 rounded-full bg-amberGold"></span>
+          <span class="font-mono text-xs font-bold tracking-[0.2em] uppercase text-obsidian/80">THE JOURNEY</span>
+        </div>
+        <h2 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight uppercase text-obsidian">
+          CAREER &amp; EDUCATION
+        </h2>
+      </div>
+
+      <!-- Two-Column Editorial Timeline Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10">
+
+        <!-- Left 7 Columns: Professional Experience with Scroll-Driven Progress Line -->
+        <div class="lg:col-span-7">
+          <h3 class="font-mono text-xs font-bold tracking-[0.2em] uppercase text-neutral-500 mb-8 flex items-center gap-2">
+            <span>PROFESSIONAL EXPERIENCE</span>
+            <span class="h-px flex-1 bg-obsidian/10"></span>
+          </h3>
+
+          <div class="relative pl-8 sm:pl-10 space-y-8" id="career-timeline-container">
+            <!-- Base Vertical Line -->
+            <div class="absolute left-3 sm:left-4 top-2 bottom-2 w-[2px] bg-obsidian/10 rounded-full"></div>
+            <!-- Scroll-Animated Fill Line -->
+            <div id="career-progress-line" class="absolute left-3 sm:left-4 top-2 w-[2px] h-0 bg-gradient-to-b from-amberGold to-coralAccent rounded-full transition-all duration-150"></div>
+
+            <!-- Role 1: Current -->
+            <div class="reveal-up relative group">
+              <span class="absolute -left-[27px] sm:-left-[31px] top-1.5 w-4 h-4 rounded-full bg-amberGold ring-4 ring-cream border-2 border-obsidian transition-transform duration-300 group-hover:scale-125"></span>
+              <div class="p-6 rounded-2xl bg-white border border-obsidian/10 group-hover:border-amberGold shadow-sm transition-all">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span class="font-mono text-xs font-bold px-2.5 py-1 rounded-lg bg-amberGold text-obsidian uppercase">CURRENT</span>
+                  <span class="font-mono text-xs font-semibold text-neutral-500 uppercase">PROJECTARTS7</span>
+                </div>
+                <h4 class="font-display font-bold text-xl text-obsidian">Creative Head</h4>
+                <p class="text-sm sm:text-base text-neutral-600 mt-2 leading-relaxed">
+                  Leading brand strategy, creative direction, client pitches, logo vectorization systems, and multi-channel commercial campaigns across high-growth regional and national brands.
+                </p>
+              </div>
+            </div>
+
+            <!-- Role 2: 2021 - 2024 -->
+            <div class="reveal-up relative group">
+              <span class="absolute -left-[27px] sm:-left-[31px] top-1.5 w-4 h-4 rounded-full bg-obsidian ring-4 ring-cream group-hover:bg-amberGold transition-colors duration-300"></span>
+              <div class="p-6 rounded-2xl bg-white border border-obsidian/10 group-hover:border-amberGold shadow-sm transition-all">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span class="font-mono text-xs font-bold px-2.5 py-1 rounded-lg bg-cream text-obsidian">2021 – 2024</span>
+                  <span class="font-mono text-xs font-semibold text-neutral-500 uppercase">PIXELAR MEDIA LLP</span>
+                </div>
+                <h4 class="font-display font-bold text-xl text-obsidian">Senior Graphic Designer</h4>
+                <p class="text-sm sm:text-base text-neutral-600 mt-2 leading-relaxed">
+                  Spearheaded major brand campaigns, packaging systems, motion graphics, and digital ad creatives across F&amp;B, entertainment parks, wellness, and retail accounts.
+                </p>
+              </div>
+            </div>
+
+            <!-- Role 3: 2019 - 2021 -->
+            <div class="reveal-up relative group">
+              <span class="absolute -left-[27px] sm:-left-[31px] top-1.5 w-4 h-4 rounded-full bg-obsidian ring-4 ring-cream group-hover:bg-amberGold transition-colors duration-300"></span>
+              <div class="p-6 rounded-2xl bg-white border border-obsidian/10 group-hover:border-amberGold shadow-sm transition-all">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span class="font-mono text-xs font-bold px-2.5 py-1 rounded-lg bg-cream text-obsidian">2019 – 2021</span>
+                  <span class="font-mono text-xs font-semibold text-neutral-500 uppercase">INDEPENDENT PRACTICE</span>
+                </div>
+                <h4 class="font-display font-bold text-xl text-obsidian">Freelance Brand Consultant</h4>
+                <p class="text-sm sm:text-base text-neutral-600 mt-2 leading-relaxed">
+                  Delivered end-to-end branding, packaging, and digital marketing design solutions for ambitious startups and established regional businesses.
+                </p>
+              </div>
+            </div>
+
+            <!-- Role 4: 2017 - 2019 -->
+            <div class="reveal-up relative group">
+              <span class="absolute -left-[27px] sm:-left-[31px] top-1.5 w-4 h-4 rounded-full bg-obsidian ring-4 ring-cream group-hover:bg-amberGold transition-colors duration-300"></span>
+              <div class="p-6 rounded-2xl bg-white border border-obsidian/10 group-hover:border-amberGold shadow-sm transition-all">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span class="font-mono text-xs font-bold px-2.5 py-1 rounded-lg bg-cream text-obsidian">2017 – 2019</span>
+                  <span class="font-mono text-xs font-semibold text-neutral-500 uppercase">GSL SYSTEMS PVT LTD</span>
+                </div>
+                <h4 class="font-display font-bold text-xl text-obsidian">Junior Graphic Designer</h4>
+                <p class="text-sm sm:text-base text-neutral-600 mt-2 leading-relaxed">
+                  Executed print layouts, corporate collateral, precision vector graphics, and digital visual assets with high production accuracy.
+                </p>
+              </div>
+            </div>
+
+            <!-- Role 5: 2015 - 2017 -->
+            <div class="reveal-up relative group">
+              <span class="absolute -left-[27px] sm:-left-[31px] top-1.5 w-4 h-4 rounded-full bg-obsidian ring-4 ring-cream group-hover:bg-amberGold transition-colors duration-300"></span>
+              <div class="p-6 rounded-2xl bg-white border border-obsidian/10 group-hover:border-amberGold shadow-sm transition-all">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span class="font-mono text-xs font-bold px-2.5 py-1 rounded-lg bg-cream text-obsidian">2015 – 2017</span>
+                  <span class="font-mono text-xs font-semibold text-neutral-500 uppercase">COMPLETE ENTERTAINMENT EXCHANGE (CEX)</span>
+                </div>
+                <h4 class="font-display font-bold text-xl text-obsidian">Graphic Design Intern</h4>
+                <p class="text-sm sm:text-base text-neutral-600 mt-2 leading-relaxed">
+                  Built foundational expertise in retail visual merchandising, high-volume image editing, and promotional print production.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right 5 Columns: Academic Education & Multilingual Fluency -->
+        <div class="lg:col-span-5 space-y-10">
+
+          <!-- Education Card Stack -->
+          <div>
+            <h3 class="font-mono text-xs font-bold tracking-[0.2em] uppercase text-neutral-500 mb-8 flex items-center gap-2">
+              <span>EDUCATION &amp; CREDENTIALS</span>
+              <span class="h-px flex-1 bg-obsidian/10"></span>
+            </h3>
+
+            <div class="space-y-4">
+              <!-- B.Tech -->
+              <div class="reveal-up p-6 rounded-2xl bg-obsidian text-cream shadow-lg border border-obsidian">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="font-mono text-xs font-bold text-amberGold">2011 – 2015</span>
+                  <span class="font-mono text-[11px] px-2.5 py-0.5 rounded bg-white/10 text-neutral-300">B.TECH (ECE)</span>
+                </div>
+                <h4 class="font-display font-bold text-lg text-cream">Bachelor of Technology in Electronics &amp; Communication Engineering</h4>
+                <p class="text-sm text-neutral-400 mt-1">Hyderabad Institute of Technology and Management (HITAM)</p>
+              </div>
+
+              <!-- Intermediate -->
+              <div class="reveal-up p-6 rounded-2xl bg-white border border-obsidian/10 shadow-sm">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="font-mono text-xs font-bold text-amber-700">2008 – 2010</span>
+                  <span class="font-mono text-[11px] px-2.5 py-0.5 rounded bg-cream text-obsidian font-semibold">INTERMEDIATE (MPC)</span>
+                </div>
+                <h4 class="font-display font-bold text-lg text-obsidian">Intermediate — Mathematics, Physics &amp; Chemistry</h4>
+                <p class="text-sm text-neutral-600 mt-1">Narayana Junior College</p>
+              </div>
+
+              <!-- SSC -->
+              <div class="reveal-up p-6 rounded-2xl bg-white border border-obsidian/10 shadow-sm">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="font-mono text-xs font-bold text-amber-700">2008</span>
+                  <span class="font-mono text-[11px] px-2.5 py-0.5 rounded bg-cream text-obsidian font-semibold">SSC</span>
+                </div>
+                <h4 class="font-display font-bold text-lg text-obsidian">Secondary School Certificate</h4>
+                <p class="text-sm text-neutral-600 mt-1">St. Rita High School</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Multilingual Proficiency -->
+          <div class="reveal-up p-6 sm:p-7 rounded-3xl bg-white border border-obsidian/10 shadow-sm">
+            <span class="font-mono text-[11px] font-bold tracking-[0.2em] uppercase text-neutral-500">MULTILINGUAL COMMUNICATION</span>
+            <h4 class="font-display font-bold text-xl text-obsidian mt-1 mb-4">Languages Spoken &amp; Written</h4>
+            <div class="flex flex-wrap gap-2.5">
+              <span class="px-4 py-2 rounded-xl bg-obsidian text-cream font-mono text-xs font-semibold hover:bg-amberGold hover:text-obsidian transition-colors cursor-default">English</span>
+              <span class="px-4 py-2 rounded-xl bg-obsidian text-cream font-mono text-xs font-semibold hover:bg-amberGold hover:text-obsidian transition-colors cursor-default">Hindi</span>
+              <span class="px-4 py-2 rounded-xl bg-obsidian text-cream font-mono text-xs font-semibold hover:bg-amberGold hover:text-obsidian transition-colors cursor-default">Telugu</span>
+              <span class="px-4 py-2 rounded-xl bg-obsidian text-cream font-mono text-xs font-semibold hover:bg-amberGold hover:text-obsidian transition-colors cursor-default">Marathi</span>
+              <span class="px-4 py-2 rounded-xl bg-obsidian text-cream font-mono text-xs font-semibold hover:bg-amberGold hover:text-obsidian transition-colors cursor-default">Kannada</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 6. RECOGNISED FOR IMPACT — AWARDS & INDUSTRY RECOGNITION              -->
+  <!-- ===================================================================== -->
+  <section id="awards" class="py-20 sm:py-28 bg-obsidianLight bg-grid-dark text-cream border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+
+      <!-- Section Header -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14 reveal-up">
+        <div class="space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amberGold/10 border border-amberGold/30">
+            <span class="w-2 h-2 rounded-full bg-amberGold"></span>
+            <span class="font-mono text-xs font-bold tracking-[0.2em] uppercase text-amberGold">RECOGNISED FOR IMPACT</span>
+          </div>
+          <h2 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight uppercase text-cream">
+            AWARDS &amp; RECOGNITION
+          </h2>
+        </div>
+        <p class="max-w-md text-base text-neutral-400">
+          Validated across cinema screens, fast-turnaround festival launches, and destination brand storytelling.
+        </p>
+      </div>
+
+      <!-- 3 Award Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Award 01 -->
+        <div class="tilt-card reveal-up group p-8 rounded-3xl bg-obsidianCard border border-white/10 hover:border-amberGold/70 flex flex-col justify-between" data-cursor="AWARD 01">
+          <div class="glare-layer"></div>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-mono text-sm font-bold text-amberGold">01 / BROADCAST</span>
+              <div class="w-11 h-11 rounded-2xl bg-amberGold/10 border border-amberGold/30 flex items-center justify-center text-amberGold group-hover:scale-110 transition-transform">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-cream mb-3 group-hover:text-amberGold transition-colors">
+              Cinema Ad Spotlight (PVR Cinemas)
+            </h3>
+            <p class="text-sm sm:text-base text-neutral-400 leading-relaxed">
+              Commercial project video featured as an official theatre advertisement in PVR Cinemas, validating broadcast-grade production and big-screen visual impact.
+            </p>
+          </div>
+          <div class="relative z-10 pt-6 mt-6 border-t border-white/10 flex items-center justify-between font-mono text-xs text-neutral-300">
+            <span>THEATRICAL RELEASE</span>
+            <span class="text-amberGold font-bold">PVR CINEMAS</span>
+          </div>
+        </div>
+
+        <!-- Award 02 -->
+        <div class="tilt-card reveal-up group p-8 rounded-3xl bg-obsidianCard border border-white/10 hover:border-amberGold/70 flex flex-col justify-between" style="transition-delay: 80ms;" data-cursor="AWARD 02">
+          <div class="glare-layer"></div>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-mono text-sm font-bold text-amberGold">02 / VELOCITY</span>
+              <div class="w-11 h-11 rounded-2xl bg-amberGold/10 border border-amberGold/30 flex items-center justify-center text-amberGold group-hover:scale-110 transition-transform">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-cream mb-3 group-hover:text-amberGold transition-colors">
+              Best Campaign Execution Award ("Thrill City")
+            </h3>
+            <p class="text-sm sm:text-base text-neutral-400 leading-relaxed">
+              Recognized for delivering high-impact festival campaign design results and multi-channel promotional assets within an accelerated turnaround window.
+            </p>
+          </div>
+          <div class="relative z-10 pt-6 mt-6 border-t border-white/10 flex items-center justify-between font-mono text-xs text-neutral-300">
+            <span>FESTIVAL CAMPAIGN</span>
+            <span class="text-amberGold font-bold">THRILL CITY</span>
+          </div>
+        </div>
+
+        <!-- Award 03 -->
+        <div class="tilt-card reveal-up group p-8 rounded-3xl bg-obsidianCard border border-white/10 hover:border-amberGold/70 flex flex-col justify-between" style="transition-delay: 160ms;" data-cursor="AWARD 03">
+          <div class="glare-layer"></div>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-mono text-sm font-bold text-amberGold">03 / DIRECTION</span>
+              <div class="w-11 h-11 rounded-2xl bg-amberGold/10 border border-amberGold/30 flex items-center justify-center text-amberGold group-hover:scale-110 transition-transform">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="8" r="7" />
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-cream mb-3 group-hover:text-amberGold transition-colors">
+              Creative Excellence Award ("36 Downtown")
+            </h3>
+            <p class="text-sm sm:text-base text-neutral-400 leading-relaxed">
+              Awarded for creative direction and visual storytelling capturing the vibrant nightlife, hospitality energy, and essence of the destination.
+            </p>
+          </div>
+          <div class="relative z-10 pt-6 mt-6 border-t border-white/10 flex items-center justify-between font-mono text-xs text-neutral-300">
+            <span>BRAND FILM</span>
+            <span class="text-amberGold font-bold">36 DOWNTOWN</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 7. WATCH THE WORK MOVE — VIDEO & MOTION REEL SHOWCASE                 -->
+  <!-- ===================================================================== -->
+  <section id="reels" class="py-20 sm:py-28 bg-obsidian bg-grid-dark text-cream border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+
+      <!-- Section Header -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14 reveal-up">
+        <div class="space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amberGold/10 border border-amberGold/30">
+            <span class="w-2 h-2 rounded-full bg-amberGold animate-pulse"></span>
+            <span class="font-mono text-xs font-bold tracking-[0.2em] uppercase text-amberGold">WATCH THE WORK MOVE</span>
+          </div>
+          <h2 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight uppercase text-cream">
+            MOTION &amp; SHOWREELS
+          </h2>
+        </div>
+        <p class="max-w-md text-base text-neutral-400">
+          Click any showreel card to open the interactive screening player — complete with a live URL loader to test or share your YouTube, Vimeo, or Google Drive links.
+        </p>
+      </div>
+
+      <!-- Showreel Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Showreel 01 -->
+        <div class="reel-card reveal-up group rounded-3xl bg-obsidianCard border border-white/10 hover:border-amberGold overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1.5" data-reel-id="0" data-cursor="PLAY">
+          <div class="relative h-48 bg-gradient-to-br from-amber-950/60 via-obsidianLight to-obsidian p-6 flex flex-col justify-between overflow-hidden">
+            <div class="flex items-center justify-between relative z-10">
+              <span class="font-mono text-xs font-bold px-2.5 py-1 rounded-lg bg-amberGold text-obsidian">SHOWREEL 01</span>
+              <span class="font-mono text-[11px] text-neutral-300">00:45 • 4K DCI</span>
+            </div>
+            <!-- Animated Play Orb -->
+            <div class="my-auto mx-auto w-14 h-14 rounded-full bg-amberGold/90 text-obsidian flex items-center justify-center shadow-[0_0_30px_rgba(245,158,11,0.5)] group-hover:scale-110 transition-transform duration-300 relative z-10">
+              <svg class="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <!-- Waveform Preview -->
+            <div class="flex items-end justify-between h-6 gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+              <div class="flex items-end gap-1 h-full">
+                <span class="eq-bar w-1 bg-amberGold rounded-full"></span>
+                <span class="eq-bar w-1 bg-amberGold rounded-full"></span>
+                <span class="eq-bar w-1 bg-amberGold rounded-full"></span>
+                <span class="eq-bar w-1 bg-amberGold rounded-full"></span>
+                <span class="eq-bar w-1 bg-amberGold rounded-full"></span>
+              </div>
+              <span class="font-mono text-[10px] uppercase tracking-wider text-amberGold">BROADCAST CINEMA SPOT</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display font-bold text-xl text-cream group-hover:text-amberGold transition-colors">
+              PVR Cinemas Featured Brand Commercial
+            </h3>
+            <p class="text-sm text-neutral-400 mt-2">
+              Official big-screen theatre commercial engineered with high-contrast kinetic typography and sound-synced transitions.
+            </p>
+          </div>
+        </div>
+
+        <!-- Showreel 02 -->
+        <div class="reel-card reveal-up group rounded-3xl bg-obsidianCard border border-white/10 hover:border-amberGold overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1.5" style="transition-delay: 60ms;" data-reel-id="1" data-cursor="PLAY">
+          <div class="relative h-48 bg-gradient-to-br from-orange-950/60 via-obsidianLight to-obsidian p-6 flex flex-col justify-between overflow-hidden">
+            <div class="flex items-center justify-between relative z-10">
+              <span class="font-mono text-xs font-bold px-2.5 py-1 rounded-lg bg-coralAccent text-obsidian">SHOWREEL 02</span>
+              <span class="font-mono text-[11px] text-neutral-300">00:30 • 60FPS</span>
+            </div>
+            <div class="my-auto mx-auto w-14 h-14 rounded-full bg-cream text-obsidian flex items-center justify-center shadow-xl group-hover:bg-amberGold group-hover:scale-110 transition-all duration-300 relative z-10">
+              <svg class="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="flex items-end justify-between h-6 gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+              <div class="flex items-end gap-1 h-full">
+                <span class="eq-bar w-1 bg-coralAccent rounded-full"></span>
+                <span class="eq-bar w-1 bg-coralAccent rounded-full"></span>
+                <span class="eq-bar w-1 bg-coralAccent rounded-full"></span>
+                <span class="eq-bar w-1 bg-coralAccent rounded-full"></span>
+                <span class="eq-bar w-1 bg-coralAccent rounded-full"></span>
+              </div>
+              <span class="font-mono text-[10px] uppercase tracking-wider text-coralAccent">HIGH-ENERGY EVENT PROMO</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display font-bold text-xl text-cream group-hover:text-amberGold transition-colors">
+              "Thrill City" Festival &amp; Ad Campaign Motion Promo
+            </h3>
+            <p class="text-sm text-neutral-400 mt-2">
+              Fast-paced festival launch motion reel built to capture adrenaline, crowd energy, and instant ticket conversions.
+            </p>
+          </div>
+        </div>
+
+        <!-- Showreel 03 -->
+        <div class="reel-card reveal-up group rounded-3xl bg-obsidianCard border border-white/10 hover:border-amberGold overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1.5" style="transition-delay: 120ms;" data-reel-id="2" data-cursor="PLAY">
+          <div class="relative h-48 bg-gradient-to-br from-emerald-950/50 via-obsidianLight to-obsidian p-6 flex flex-col justify-between overflow-hidden">
+            <div class="flex items-center justify-between relative z-10">
+              <span class="font-mono text-xs font-bold px-2.5 py-1 rounded-lg bg-white/15 text-cream">SHOWREEL 03</span>
+              <span class="font-mono text-[11px] text-neutral-300">01:10 • HD</span>
+            </div>
+            <div class="my-auto mx-auto w-14 h-14 rounded-full bg-cream text-obsidian flex items-center justify-center shadow-xl group-hover:bg-amberGold group-hover:scale-110 transition-all duration-300 relative z-10">
+              <svg class="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="flex items-end justify-between h-6 gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+              <div class="flex items-end gap-1 h-full">
+                <span class="eq-bar w-1 bg-emerald-400 rounded-full"></span>
+                <span class="eq-bar w-1 bg-emerald-400 rounded-full"></span>
+                <span class="eq-bar w-1 bg-emerald-400 rounded-full"></span>
+                <span class="eq-bar w-1 bg-emerald-400 rounded-full"></span>
+                <span class="eq-bar w-1 bg-emerald-400 rounded-full"></span>
+              </div>
+              <span class="font-mono text-[10px] uppercase tracking-wider text-emerald-400">DESTINATION STORYTELLING</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display font-bold text-xl text-cream group-hover:text-amberGold transition-colors">
+              "36 Downtown" Award-Winning Brand Film
+            </h3>
+            <p class="text-sm text-neutral-400 mt-2">
+              Lifestyle &amp; hospitality brand film recognized with the Creative Excellence Award for atmospheric visual direction.
+            </p>
+          </div>
+        </div>
+
+        <!-- Showreel 04 -->
+        <div class="reel-card reveal-up group rounded-3xl bg-obsidianCard border border-white/10 hover:border-amberGold overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1.5" data-reel-id="3" data-cursor="PLAY">
+          <div class="relative h-48 bg-gradient-to-br from-purple-950/50 via-obsidianLight to-obsidian p-6 flex flex-col justify-between overflow-hidden">
+            <div class="flex items-center justify-between relative z-10">
+              <span class="font-mono text-xs font-bold px-2.5 py-1 rounded-lg bg-white/15 text-cream">SHOWREEL 04</span>
+              <span class="font-mono text-[11px] text-neutral-300">BLENDER + COMFYUI</span>
+            </div>
+            <div class="my-auto mx-auto w-14 h-14 rounded-full bg-cream text-obsidian flex items-center justify-center shadow-xl group-hover:bg-amberGold group-hover:scale-110 transition-all duration-300 relative z-10">
+              <svg class="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="flex items-end justify-between h-6 gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+              <div class="flex items-end gap-1 h-full">
+                <span class="eq-bar w-1 bg-purple-400 rounded-full"></span>
+                <span class="eq-bar w-1 bg-purple-400 rounded-full"></span>
+                <span class="eq-bar w-1 bg-purple-400 rounded-full"></span>
+                <span class="eq-bar w-1 bg-purple-400 rounded-full"></span>
+                <span class="eq-bar w-1 bg-purple-400 rounded-full"></span>
+              </div>
+              <span class="font-mono text-[10px] uppercase tracking-wider text-purple-300">3D &amp; AI COMMERCIAL VISUALS</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display font-bold text-xl text-cream group-hover:text-amberGold transition-colors">
+              Product Packaging &amp; 3D / ComfyUI Commercial Visuals
+            </h3>
+            <p class="text-sm text-neutral-400 mt-2">
+              Studio-lit 3D packaging rotations and AI-composited commercial shots for Grovel, DeChoclatier &amp; Burger N Beast.
+            </p>
+          </div>
+        </div>
+
+        <!-- Showreel 05: Live Interactive Lottie / Micro-Animation Sandbox Card -->
+        <div class="md:col-span-2 reveal-up rounded-3xl bg-obsidianCard border border-white/10 hover:border-amberGold p-6 sm:p-8 flex flex-col justify-between transition-all duration-300" style="transition-delay: 80ms;">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div class="flex items-center gap-3">
+              <span class="font-mono text-xs font-bold px-2.5 py-1 rounded-lg bg-amberGold text-obsidian">SHOWREEL 05</span>
+              <span class="font-mono text-xs text-amberGold uppercase tracking-wider">LIVE INTERACTIVE SANDBOX</span>
+            </div>
+            <button type="button" class="reel-card font-mono text-xs font-semibold text-neutral-300 hover:text-amberGold underline underline-offset-4" data-reel-id="4">
+              Open Full Reel Modal ↗
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+            <div class="sm:col-span-7 space-y-3">
+              <h3 class="font-display font-bold text-2xl text-cream">
+                UI/UX Micro-Animations &amp; Lottie Motion Reel
+              </h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">
+                Vector app &amp; web motion design exported via Bodymovin Lottie JSON. Interact with the live vector morph &amp; spring toggle widget on the right to test real-time UI responsiveness.
+              </p>
+              <div class="flex flex-wrap gap-2 pt-1">
+                <span class="font-mono text-[11px] px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-neutral-300">60FPS VECTOR</span>
+                <span class="font-mono text-[11px] px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-neutral-300">LOTTIE JSON</span>
+                <span class="font-mono text-[11px] px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-neutral-300">SPRING PHYSICS</span>
+              </div>
+            </div>
+
+            <!-- Interactive Lottie-Style Vector Micro-Interaction Widget -->
+            <div class="sm:col-span-5 p-5 rounded-2xl bg-obsidian border border-white/10 flex flex-col items-center justify-center gap-4">
+              <button id="lottie-sandbox-trigger" type="button" class="group relative w-24 h-24 rounded-2xl bg-obsidianLight border border-amberGold/40 flex items-center justify-center overflow-hidden focus:outline-none">
+                <div id="lottie-morph-shape" class="w-11 h-11 rounded-xl bg-gradient-to-tr from-amberGold to-coralAccent transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] flex items-center justify-center text-obsidian font-display font-extrabold text-sm">
+                  SK
+                </div>
+              </button>
+              <span id="lottie-state-label" class="font-mono text-[11px] text-neutral-400 uppercase tracking-wider">Click shape to morph state</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 8. CONTACT & FOOTER SECTION (DARK OBSIDIAN EDITORIAL BAND)            -->
+  <!-- ===================================================================== -->
+  <footer id="contact" class="py-20 sm:py-28 bg-obsidian bg-grid-dark text-cream border-t border-white/10 relative overflow-hidden">
+    <!-- Subtle Bottom Glow -->
+    <div class="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[680px] h-[340px] rounded-full bg-amberGold/10 blur-[140px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
+
+      <!-- Big Display CTA Header -->
+      <div class="max-w-4xl mb-16 reveal-up">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amberGold/10 border border-amberGold/30 mb-6">
+          <span class="w-2 h-2 rounded-full bg-amberGold animate-ping"></span>
+          <span class="font-mono text-xs font-bold tracking-[0.2em] uppercase text-amberGold">AVAILABLE FOR BRAND &amp; CAMPAIGN DIRECTION</span>
+        </div>
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight text-cream">
+          Ready to turn your brand into a <span class="text-transparent bg-clip-text bg-gradient-to-r from-amberGold via-amberBright to-coralAccent">visual powerhouse?</span> Let’s build something iconic together.
+        </h2>
+      </div>
+
+      <!-- Contact Details + Interactive Inquiry Form Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
+
+        <!-- Left 5 Columns: Direct Contact Cards with One-Click Copy -->
+        <div class="lg:col-span-5 space-y-4 reveal-up">
+          <!-- Phone / WhatsApp Card -->
+          <div class="p-5 rounded-2xl bg-obsidianCard border border-white/10 hover:border-amberGold/60 transition-all flex items-center justify-between gap-4">
+            <div>
+              <span class="font-mono text-[11px] uppercase tracking-widest text-neutral-400">DIRECT LINE / WHATSAPP</span>
+              <p class="font-display font-bold text-lg sm:text-xl text-cream mt-0.5">+91 81436 07005</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" onclick="copyToClipboard('+91 81436 07005', 'Phone number copied!')" class="p-2.5 rounded-xl bg-white/5 hover:bg-amberGold hover:text-obsidian text-neutral-300 transition-colors" title="Copy Phone Number">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+                </svg>
+              </button>
+              <a href="https://wa.me/918143607005" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2.5 rounded-xl bg-emerald-500/15 hover:bg-emerald-500 text-emerald-400 hover:text-obsidian border border-emerald-500/30 font-mono text-xs font-bold uppercase transition-colors">
+                WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Email Card -->
+          <div class="p-5 rounded-2xl bg-obsidianCard border border-white/10 hover:border-amberGold/60 transition-all flex items-center justify-between gap-4">
+            <div class="min-w-0">
+              <span class="font-mono text-[11px] uppercase tracking-widest text-neutral-400">EMAIL ADDRESS</span>
+              <p class="font-display font-bold text-base sm:text-lg text-cream mt-0.5 truncate">Sudheerkade7@gmail.com</p>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button type="button" onclick="copyToClipboard('Sudheerkade7@gmail.com', 'Email address copied!')" class="p-2.5 rounded-xl bg-white/5 hover:bg-amberGold hover:text-obsidian text-neutral-300 transition-colors" title="Copy Email">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+                </svg>
+              </button>
+              <a href="mailto:Sudheerkade7@gmail.com" class="px-3.5 py-2.5 rounded-xl bg-amberGold/15 hover:bg-amberGold text-amberGold hover:text-obsidian border border-amberGold/30 font-mono text-xs font-bold uppercase transition-colors">
+                Mail
+              </a>
+            </div>
+          </div>
+
+          <!-- Studio Location Card -->
+          <div class="p-5 rounded-2xl bg-obsidianCard border border-white/10">
+            <span class="font-mono text-[11px] uppercase tracking-widest text-neutral-400">STUDIO LOCATION</span>
+            <p class="font-display font-bold text-base sm:text-lg text-cream mt-1">
+              KPHB 5th Phase, Hyderabad, Telangana – 500072, India
+            </p>
+          </div>
+
+          <!-- Social Channel Links -->
+          <div class="pt-2">
+            <span class="font-mono text-[11px] uppercase tracking-widest text-neutral-400 block mb-3">PORTFOLIO &amp; SOCIAL CHANNELS</span>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <a href="#work" class="group py-3 px-3 rounded-xl bg-white/[0.04] hover:bg-amberGold border border-white/10 hover:border-amberGold text-center font-mono text-xs font-bold text-cream hover:text-obsidian transition-all hover:-translate-y-0.5">
+                Behance ↗
+              </a>
+              <a href="#work" class="group py-3 px-3 rounded-xl bg-white/[0.04] hover:bg-amberGold border border-white/10 hover:border-amberGold text-center font-mono text-xs font-bold text-cream hover:text-obsidian transition-all hover:-translate-y-0.5">
+                Instagram ↗
+              </a>
+              <a href="#career" class="group py-3 px-3 rounded-xl bg-white/[0.04] hover:bg-amberGold border border-white/10 hover:border-amberGold text-center font-mono text-xs font-bold text-cream hover:text-obsidian transition-all hover:-translate-y-0.5">
+                LinkedIn ↗
+              </a>
+              <a href="#reels" class="group py-3 px-3 rounded-xl bg-white/[0.04] hover:bg-amberGold border border-white/10 hover:border-amberGold text-center font-mono text-xs font-bold text-cream hover:text-obsidian transition-all hover:-translate-y-0.5">
+                YouTube ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right 7 Columns: Quick Project Brief Form -->
+        <div class="lg:col-span-7 reveal-up" style="transition-delay: 100ms;">
+          <form id="project-inquiry-form" class="p-6 sm:p-8 rounded-3xl bg-obsidianCard border border-white/10 space-y-5">
+            <div class="flex items-center justify-between">
+              <h3 class="font-display font-bold text-xl sm:text-2xl text-cream">Start a Project Brief</h3>
+              <span class="font-mono text-xs text-amberGold">AVG. RESPONSE &lt; 24H</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="inq-name" class="block font-mono text-[11px] uppercase tracking-wider text-neutral-400 mb-1.5">Your Name *</label>
+                <input id="inq-name" type="text" required placeholder="e.g. Aarav Sharma" class="w-full px-4 py-3 rounded-xl bg-obsidian border border-white/10 focus:border-amberGold focus:outline-none text-sm text-cream placeholder-neutral-600 transition-colors" />
+              </div>
+              <div>
+                <label for="inq-brand" class="block font-mono text-[11px] uppercase tracking-wider text-neutral-400 mb-1.5">Brand / Company</label>
+                <input id="inq-brand" type="text" placeholder="e.g. Deccan Roasters" class="w-full px-4 py-3 rounded-xl bg-obsidian border border-white/10 focus:border-amberGold focus:outline-none text-sm text-cream placeholder-neutral-600 transition-colors" />
+              </div>
+            </div>
+
+            <!-- Interactive Service Selection Pills -->
+            <div>
+              <span class="block font-mono text-[11px] uppercase tracking-wider text-neutral-400 mb-2">Service Needed</span>
+              <div class="flex flex-wrap gap-2" id="inquiry-service-pills">
+                <button type="button" class="service-select-pill px-3.5 py-2 rounded-xl bg-amberGold text-obsidian font-mono text-xs font-bold transition-all">Brand Identity</button>
+                <button type="button" class="service-select-pill px-3.5 py-2 rounded-xl bg-obsidian border border-white/10 text-neutral-300 hover:border-amberGold/50 font-mono text-xs transition-all">Packaging &amp; 3D</button>
+                <button type="button" class="service-select-pill px-3.5 py-2 rounded-xl bg-obsidian border border-white/10 text-neutral-300 hover:border-amberGold/50 font-mono text-xs transition-all">360° Campaign</button>
+                <button type="button" class="service-select-pill px-3.5 py-2 rounded-xl bg-obsidian border border-white/10 text-neutral-300 hover:border-amberGold/50 font-mono text-xs transition-all">Motion / Reels</button>
+                <button type="button" class="service-select-pill px-3.5 py-2 rounded-xl bg-obsidian border border-white/10 text-neutral-300 hover:border-amberGold/50 font-mono text-xs transition-all">Social &amp; Print</button>
+              </div>
+            </div>
+
+            <div>
+              <label for="inq-message" class="block font-mono text-[11px] uppercase tracking-wider text-neutral-400 mb-1.5">Project Vision &amp; Timeline *</label>
+              <textarea id="inq-message" rows="3" required placeholder="Tell me about your brand goals, deliverables, or launch timeline..." class="w-full px-4 py-3 rounded-xl bg-obsidian border border-white/10 focus:border-amberGold focus:outline-none text-sm text-cream placeholder-neutral-600 transition-colors resize-none"></textarea>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-1">
+              <button type="submit" class="magnetic-btn inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-amberGold hover:bg-amberBright text-obsidian font-mono text-xs font-bold uppercase tracking-wider shadow-lg transition-all">
+                <span>Send Project Inquiry</span>
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
+              <span id="form-feedback-text" class="font-mono text-xs text-emerald-400 hidden">✓ Brief prepared! Opening direct WhatsApp / Mail handoff...</span>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-500">
+        <div>
+          <span class="text-cream font-bold">SUDHEER KADE</span> — Senior Creative Head &amp; Brand Identity Architect
+        </div>
+        <div>
+          © 2026 Hyderabad, Telangana, India. Crafted with Precision Vector Architecture.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 1: BRAND CASE STUDY DRAWER / MODAL                              -->
+  <!-- ===================================================================== -->
+  <div id="brand-modal" class="fixed inset-0 z-[120] hidden items-center justify-center p-4 sm:p-6 bg-obsidian/85 backdrop-blur-lg">
+    <div class="relative w-full max-w-2xl rounded-3xl bg-obsidianCard border border-white/15 shadow-2xl overflow-hidden animate-[heroLineRise_0.35s_ease-out_forwards]">
+      <!-- Modal Top Banner -->
+      <div id="brand-modal-banner" class="p-6 sm:p-8 bg-gradient-to-r from-amber-900/40 via-obsidianLight to-obsidian border-b border-white/10 flex items-start justify-between gap-4">
+        <div>
+          <span id="brand-modal-category" class="font-mono text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-amberGold text-obsidian">GROUP A</span>
+          <h3 id="brand-modal-title" class="font-display font-extrabold text-3xl sm:text-4xl text-cream mt-3">Brand Name</h3>
+          <p id="brand-modal-tagline" class="font-mono text-xs text-amberGold mt-1 uppercase tracking-wider">Visual Identity &amp; Campaign Direction</p>
+        </div>
+        <button id="close-brand-modal" type="button" class="p-2.5 rounded-xl bg-white/10 hover:bg-amberGold hover:text-obsidian text-cream transition-colors">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Modal Content -->
+      <div class="p-6 sm:p-8 space-y-6">
+        <div>
+          <span class="font-mono text-[11px] uppercase tracking-widest text-neutral-400">CREATIVE MANDATE &amp; EXECUTION</span>
+          <p id="brand-modal-desc" class="text-base text-neutral-200 leading-relaxed mt-2"></p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 rounded-2xl bg-obsidian border border-white/10">
+            <span class="font-mono text-[10px] uppercase tracking-widest text-amberGold">KEY DELIVERABLES</span>
+            <ul id="brand-modal-deliverables" class="mt-2 space-y-1.5 text-sm text-neutral-300"></ul>
+          </div>
+          <div class="p-4 rounded-2xl bg-obsidian border border-white/10">
+            <span class="font-mono text-[10px] uppercase tracking-widest text-amberGold">VISUAL DIRECTION &amp; STACK</span>
+            <p id="brand-modal-direction" class="mt-2 text-sm text-neutral-300 leading-relaxed"></p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-white/10">
+          <span class="font-mono text-xs text-neutral-400">Creative Direction by Sudheer Kade</span>
+          <a href="#contact" onclick="closeBrandModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amberGold hover:bg-amberBright text-obsidian font-mono text-xs font-bold uppercase transition-colors">
+            Request Similar Project ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 2: VIDEO SHOWREEL PLAYER & URL TESTER MODAL                     -->
+  <!-- ===================================================================== -->
+  <div id="reel-modal" class="fixed inset-0 z-[120] hidden items-center justify-center p-4 sm:p-6 bg-obsidian/90 backdrop-blur-xl">
+    <div class="relative w-full max-w-3xl rounded-3xl bg-obsidianCard border border-white/15 shadow-2xl overflow-hidden">
+      <div class="p-5 sm:p-6 border-b border-white/10 flex items-center justify-between gap-4">
+        <div>
+          <span id="reel-modal-badge" class="font-mono text-[11px] font-bold px-2.5 py-0.5 rounded bg-amberGold text-obsidian uppercase">SHOWREEL 01</span>
+          <h3 id="reel-modal-title" class="font-display font-bold text-xl sm:text-2xl text-cream mt-1">Showreel Title</h3>
+        </div>
+        <button id="close-reel-modal" type="button" class="p-2.5 rounded-xl bg-white/10 hover:bg-amberGold hover:text-obsidian text-cream transition-colors">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Simulated / Embed Screening Stage -->
+      <div id="reel-video-stage" class="relative aspect-video bg-obsidian flex flex-col items-center justify-center p-6 text-center overflow-hidden">
+        <div class="absolute inset-0 bg-grid-dark opacity-60"></div>
+        <div class="relative z-10 max-w-md space-y-4">
+          <div class="w-16 h-16 mx-auto rounded-full bg-amberGold/15 border border-amberGold/40 flex items-center justify-center text-amberGold">
+            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3" />
+            </svg>
+          </div>
+          <p id="reel-modal-desc" class="text-sm text-neutral-300 leading-relaxed"></p>
+          <p class="font-mono text-[11px] text-amberGold">Paste a YouTube, Vimeo, or MP4 link below to preview directly in this theater player:</p>
+        </div>
+      </div>
+
+      <!-- Interactive URL Loader Bar for Sudheer -->
+      <div class="p-4 sm:p-5 bg-obsidianLight border-t border-white/10 flex flex-col sm:flex-row gap-3">
+        <input id="reel-custom-url-input" type="url" placeholder="Paste YouTube or Vimeo link here to preview..." class="flex-1 px-4 py-2.5 rounded-xl bg-obsidian border border-white/15 focus:border-amberGold focus:outline-none text-xs font-mono text-cream placeholder-neutral-500" />
+        <button id="reel-load-url-btn" type="button" class="px-5 py-2.5 rounded-xl bg-amberGold hover:bg-amberBright text-obsidian font-mono text-xs font-bold uppercase transition-colors">
+          Load Video
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 3: PRINTABLE / DOWNLOADABLE EXECUTIVE CV SUMMARY                -->
+  <!-- ===================================================================== -->
+  <div id="cv-modal" class="fixed inset-0 z-[120] hidden items-center justify-center p-4 sm:p-6 bg-obsidian/90 backdrop-blur-xl overflow-y-auto">
+    <div id="cv-printable-area" class="relative w-full max-w-3xl my-auto rounded-3xl bg-cream text-obsidian border border-obsidian/20 shadow-2xl overflow-hidden">
+      <div class="p-6 sm:p-8 bg-obsidian text-cream flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <span class="font-mono text-xs font-bold text-amberGold uppercase tracking-widest">CURRICULUM VITAE</span>
+          <h3 class="font-display font-extrabold text-3xl sm:text-4xl mt-1">SUDHEER KADE</h3>
+          <p class="font-mono text-xs text-neutral-300 mt-1">Senior Creative Head | Brand Identity Architect | Graphic Designer &amp; Digital Strategist</p>
+          <p class="font-mono text-xs text-amberGold mt-2">+91 81436 07005 &nbsp;•&nbsp; Sudheerkade7@gmail.com &nbsp;•&nbsp; Hyderabad, India</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="window.print()" class="px-4 py-2 rounded-xl bg-amberGold hover:bg-amberBright text-obsidian font-mono text-xs font-bold uppercase transition-colors">
+            Print / Save PDF
+          </button>
+          <button id="close-cv-modal" type="button" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-cream transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="p-6 sm:p-8 space-y-6 text-sm">
+        <div>
+          <h4 class="font-mono text-xs font-bold uppercase tracking-widest text-amber-800 border-b border-obsidian/10 pb-1.5 mb-2">Executive Summary</h4>
+          <p class="text-neutral-700 leading-relaxed">
+            9+ years of multidisciplinary creative leadership transforming ambitious brands into unforgettable visual icons across Brand Identity, Packaging &amp; 3D Mockups, 360° Advertising Campaigns (PVR Cinemas), Motion Graphics (Lottie/After Effects), and AI-enhanced studio workflows (ComfyUI &amp; Blender).
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-mono text-xs font-bold uppercase tracking-widest text-amber-800 border-b border-obsidian/10 pb-1.5 mb-2">Experience Highlights</h4>
+            <ul class="space-y-2 text-neutral-800">
+              <li><strong>Creative Head</strong> — ProjectArts7 (Current)</li>
+              <li><strong>Senior Graphic Designer</strong> — Pixelar Media LLP (2021–2024)</li>
+              <li><strong>Freelance Brand Consultant</strong> — Independent (2019–2021)</li>
+              <li><strong>Junior Graphic Designer</strong> — GSL Systems Pvt Ltd (2017–2019)</li>
+              <li><strong>Graphic Design Intern</strong> — CEX (2015–2017)</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-mono text-xs font-bold uppercase tracking-widest text-amber-800 border-b border-obsidian/10 pb-1.5 mb-2">Education &amp; Awards</h4>
+            <ul class="space-y-2 text-neutral-800">
+              <li><strong>B.Tech (ECE)</strong> — HITAM, Hyderabad (2011–2015)</li>
+              <li><strong>Cinema Ad Spotlight</strong> — Featured on PVR Cinemas</li>
+              <li><strong>Best Campaign Execution</strong> — Thrill City Festival</li>
+              <li><strong>Creative Excellence Award</strong> — 36 Downtown Film</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-mono text-xs font-bold uppercase tracking-widest text-amber-800 border-b border-obsidian/10 pb-1.5 mb-2">Key Client Portfolio (17 Brands)</h4>
+          <p class="text-neutral-700 leading-relaxed">
+            Cafe Bahar, Bawarchi, Cafe Deccan Bakery, Naaz Mandi, Burger N Beast, DeChoclatier, Nature Honey, Kapiva, Grovel, Zaalive, Thrill City, Luxurio Boutique, Alexander Saloons, Hands of Art Studio, Meechu, OGPL, Hindustan International Couriers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 4: MOCKUP LIGHTBOX & PROBLEM/SOLUTION INSPECTOR                 -->
+  <!-- ===================================================================== -->
+  <div id="gallery-lightbox-modal" class="fixed inset-0 z-[125] hidden items-center justify-center p-4 sm:p-6 bg-obsidian/90 backdrop-blur-xl overflow-y-auto">
+    <div class="relative w-full max-w-4xl my-auto rounded-3xl bg-obsidianCard border border-white/15 shadow-2xl overflow-hidden">
+      <!-- Top Bar -->
+      <div class="p-5 sm:p-6 border-b border-white/10 flex items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2.5">
+            <span id="lb-category" class="font-mono text-[10px] font-bold px-2.5 py-0.5 rounded bg-amberGold text-obsidian uppercase">PACKAGING</span>
+            <span id="lb-brand" class="font-mono text-xs font-semibold text-amberGold uppercase tracking-wider">BRAND NAME</span>
+          </div>
+          <h3 id="lb-title" class="font-display font-bold text-xl sm:text-2xl text-cream mt-1">Project Title</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="lb-zoom-toggle" type="button" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-amberGold hover:text-obsidian font-mono text-xs font-bold text-cream uppercase transition-colors">
+            Zoom 1.4x
+          </button>
+          <button id="close-gallery-lightbox" type="button" class="p-2.5 rounded-xl bg-white/10 hover:bg-amberGold hover:text-obsidian text-cream transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Lightbox Split Body: Visual Frame + Problem & Solution Breakdown -->
+      <div class="grid grid-cols-1 lg:grid-cols-12">
+        <!-- Left 7 Cols: Artwork / Uploaded Mockup Stage -->
+        <div class="lg:col-span-7 bg-obsidian border-b lg:border-b-0 lg:border-r border-white/10 flex items-center justify-center p-4 sm:p-6 overflow-hidden min-h-[290px] sm:min-h-[380px]">
+          <div id="lb-visual-container" class="w-full h-full flex items-center justify-center transition-transform duration-300 ease-out origin-center">
+            <!-- Injected image or SVG artwork -->
+          </div>
+        </div>
+
+        <!-- Right 5 Cols: Problem & Solution Case Notes -->
+        <div class="lg:col-span-5 p-6 sm:p-7 flex flex-col justify-between space-y-5">
+          <div class="space-y-4">
+            <!-- Problem Block -->
+            <div class="p-4 rounded-2xl bg-rose-500/[0.07] border border-rose-500/25">
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-widest text-rose-300">THE PROBLEM / CHALLENGE</span>
+              </div>
+              <p id="lb-problem" class="text-sm text-neutral-200 leading-relaxed"></p>
+            </div>
+
+            <!-- Solution Block -->
+            <div class="p-4 rounded-2xl bg-emerald-500/[0.07] border border-emerald-500/25">
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-widest text-emerald-300">HOW I SOLVED IT</span>
+              </div>
+              <p id="lb-solution" class="text-sm text-neutral-200 leading-relaxed"></p>
+            </div>
+
+            <!-- Tools / Specs -->
+            <div>
+              <span class="font-mono text-[10px] uppercase tracking-widest text-neutral-400 block mb-2">TOOLS &amp; SPECS</span>
+              <div id="lb-tools" class="flex flex-wrap gap-1.5"></div>
+            </div>
+          </div>
+
+          <!-- Replace Image Directly on Card -->
+          <div class="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
+            <label class="cursor-pointer inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 font-mono text-[11px] font-semibold text-neutral-200 transition-colors">
+              <svg class="w-3.5 h-3.5 text-amberGold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+              </svg>
+              <span>Replace With Real Image</span>
+              <input id="lb-replace-image-input" type="file" accept="image/*" class="hidden" />
+            </label>
+
+            <a href="#contact" onclick="closeGalleryLightbox()" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amberGold hover:bg-amberBright text-obsidian font-mono text-xs font-bold uppercase transition-colors">
+              Hire For Similar ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 5: ADD / UPLOAD NEW MOCKUP & CASE STUDY MODAL                   -->
+  <!-- ===================================================================== -->
+  <div id="upload-mockup-modal" class="fixed inset-0 z-[125] hidden items-center justify-center p-4 sm:p-6 bg-obsidian/90 backdrop-blur-xl overflow-y-auto">
+    <div class="relative w-full max-w-xl my-auto rounded-3xl bg-obsidianCard border border-white/15 shadow-2xl overflow-hidden">
+      <div class="p-6 border-b border-white/10 flex items-center justify-between">
+        <div>
+          <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-amberGold">PORTFOLIO STUDIO UPLOADER</span>
+          <h3 class="font-display font-bold text-2xl text-cream mt-0.5">Add Mockup &amp; Problem/Solution</h3>
+        </div>
+        <button id="close-upload-modal" type="button" class="p-2 rounded-xl bg-white/10 hover:bg-amberGold hover:text-obsidian text-cream transition-colors">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <form id="upload-mockup-form" class="p-6 space-y-4">
+        <!-- Image File Picker -->
+        <div>
+          <label class="block font-mono text-[11px] uppercase tracking-wider text-neutral-300 mb-1.5">Mockup / Packaging Image *</label>
+          <label for="new-mockup-file" class="flex flex-col items-center justify-center p-5 rounded-2xl border-2 border-dashed border-white/15 hover:border-amberGold bg-obsidian cursor-pointer transition-colors text-center">
+            <svg class="w-7 h-7 text-amberGold mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <span id="new-mockup-filename" class="font-mono text-xs text-cream font-semibold">Click to select PNG, JPG, or WEBP mockup</span>
+            <span class="font-mono text-[10px] text-neutral-500 mt-1">High-resolution packaging renders or brand mockups</span>
+            <input id="new-mockup-file" type="file" accept="image/*" required class="hidden" />
+          </label>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="new-mockup-brand" class="block font-mono text-[11px] uppercase tracking-wider text-neutral-400 mb-1">Brand Name *</label>
+            <input id="new-mockup-brand" type="text" required placeholder="e.g. Grovel / Cafe Bahar" class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian border border-white/15 focus:border-amberGold focus:outline-none text-sm text-cream" />
+          </div>
+          <div>
+            <label for="new-mockup-category" class="block font-mono text-[11px] uppercase tracking-wider text-neutral-400 mb-1">Category *</label>
+            <select id="new-mockup-category" class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian border border-white/15 focus:border-amberGold focus:outline-none text-sm text-cream">
+              <option value="PACKAGING">Packaging &amp; Labels</option>
+              <option value="MOCKUPS">3D &amp; Brand Mockups</option>
+              <option value="CAMPAIGN">Campaign &amp; Print</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="new-mockup-title" class="block font-mono text-[11px] uppercase tracking-wider text-neutral-400 mb-1">Project / Packaging Title *</label>
+          <input id="new-mockup-title" type="text" required placeholder="e.g. Herbal Pouch &amp; Box Dieline Mockup" class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian border border-white/15 focus:border-amberGold focus:outline-none text-sm text-cream" />
+        </div>
+
+        <div>
+          <label for="new-mockup-problem" class="block font-mono text-[11px] uppercase tracking-wider text-rose-300 mb-1">The Problem / Challenge Faced *</label>
+          <textarea id="new-mockup-problem" rows="2" required placeholder="What visual, shelf-visibility, or printing problem did the brand face?" class="w-full px-3.5 py-2 rounded-xl bg-obsidian border border-white/15 focus:border-amberGold focus:outline-none text-sm text-cream resize-none"></textarea>
+        </div>
+
+        <div>
+          <label for="new-mockup-solution" class="block font-mono text-[11px] uppercase tracking-wider text-emerald-300 mb-1">How I Solved It *</label>
+          <textarea id="new-mockup-solution" rows="2" required placeholder="Describe your design strategy, typography, dieline, or 3D solution..." class="w-full px-3.5 py-2 rounded-xl bg-obsidian border border-white/15 focus:border-amberGold focus:outline-none text-sm text-cream resize-none"></textarea>
+        </div>
+
+        <div class="pt-2 flex items-center justify-end gap-3">
+          <button type="button" id="cancel-upload-modal" class="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 font-mono text-xs text-neutral-300 uppercase">Cancel</button>
+          <button type="submit" class="px-6 py-2.5 rounded-xl bg-amberGold hover:bg-amberBright text-obsidian font-mono text-xs font-bold uppercase shadow-lg transition-colors">
+            Publish to Gallery
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT: DATA, MICRO-ANIMATIONS, MAGNETIC CURSOR & INTERACTIVITY   -->
+  <!-- ===================================================================== -->
+  <script>
+    // -----------------------------------------------------------------------
+    // 0. MOCKUPS & PACKAGING GALLERY DATASET (WITH BESPOKE STUDIO ARTWORK)
+    // -----------------------------------------------------------------------
+    const defaultMockupGallery = [
+      {
+        id: 'm1',
+        brand: 'Grovel Ayurveda',
+        title: 'Amrutha Dia Choornam — Matte Pouch & Label',
+        category: 'PACKAGING',
+        categoryLabel: 'PACKAGING & LABELS',
+        problem: 'Traditional Ayurvedic powders looked dated and cluttered on retail shelves, failing to communicate clinical trust to modern urban buyers.',
+        solution: 'Engineered a clean typographic hierarchy pairing deep herbal charcoal with metallic gold foil accents and clear dosage iconography, elevating shelf authority.',
+        tools: ['Adobe Illustrator', 'Dieline CAD', 'Gold Foil Spec', '3D Mockup'],
+        imageUrl: null,
+        svgArt: `
+          <svg viewBox="0 0 400 260" class="w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g1bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1A1D1A"/><stop offset="100%" stop-color="#0B0D0B"/></linearGradient>
+              <linearGradient id="g1gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FDE68A"/><stop offset="50%" stop-color="#D97706"/><stop offset="100%" stop-color="#92400E"/></linearGradient>
+              <linearGradient id="g1pouch" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#141815"/><stop offset="50%" stop-color="#222823"/><stop offset="100%" stop-color="#101311"/></linearGradient>
+            </defs>
+            <rect width="400" height="260" fill="url(#g1bg)"/>
+            <ellipse cx="200" cy="236" rx="85" ry="10" fill="#000" opacity="0.65"/>
+            <!-- Stand-up Matte Pouch -->
+            <path d="M132 34 L268 34 L276 226 C276 232 270 236 262 236 L138 236 C130 236 124 232 124 226 Z" fill="url(#g1pouch)" stroke="#374151" stroke-width="1.2"/>
+            <!-- Tear Notch & Zip Seal -->
+            <line x1="130" y1="52" x2="270" y2="52" stroke="#D97706" stroke-width="1" stroke-dasharray="3 2" opacity="0.7"/>
+            <line x1="129" y1="60" x2="271" y2="60" stroke="#4B5563" stroke-width="1.5"/>
+            <!-- Gold Foil Botanical Crest -->
+            <circle cx="200" cy="104" r="24" fill="none" stroke="url(#g1gold)" stroke-width="1.8"/>
+            <path d="M200 86 C209 96 209 112 200 122 C191 112 191 96 200 86 Z" fill="url(#g1gold)" opacity="0.9"/>
+            <path d="M185 104 C194 98 206 98 215 104 C206 110 194 110 185 104 Z" fill="url(#g1gold)" opacity="0.65"/>
+            <!-- Brand & Product Typography -->
+            <text x="200" y="146" text-anchor="middle" fill="#FDE68A" font-family="Syne, sans-serif" font-weight="800" font-size="15" letter-spacing="3">GROVEL</text>
+            <text x="200" y="164" text-anchor="middle" fill="#F3F4F6" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="10.5" letter-spacing="1">AMRUTHA DIA CHOORNAM</text>
+            <rect x="155" y="176" width="90" height="16" rx="8" fill="#D97706" opacity="0.2" stroke="#D97706" stroke-width="0.8"/>
+            <text x="200" y="187" text-anchor="middle" fill="#FBBF24" font-family="JetBrains Mono, monospace" font-size="7.5" font-weight="700">100% AYURVEDIC • 200G</text>
+            <!-- Botanical Leaf Accents -->
+            <path d="M136 208 Q165 190 195 218" fill="none" stroke="url(#g1gold)" stroke-width="1.4" opacity="0.6"/>
+            <path d="M264 208 Q235 190 205 218" fill="none" stroke="url(#g1gold)" stroke-width="1.4" opacity="0.6"/>
+          </svg>
+        `
+      },
+      {
+        id: 'm2',
+        brand: 'DeChoclatier',
+        title: 'Artisan Truffle Luxury Rigid Box & Sleeve',
+        category: 'PACKAGING',
+        categoryLabel: 'PACKAGING & LABELS',
+        problem: 'Needed bespoke festive gifting packaging that felt ultra-premium without driving up die-cut manufacturing costs across 6 flavor variants.',
+        solution: 'Designed a modular foil-stamped outer sleeve system over a single master rigid box structure, cutting print setup costs by 40% while elevating unboxing luxury.',
+        tools: ['Adobe Illustrator', 'InDesign', 'Foil Stamping', 'Structural Dieline'],
+        imageUrl: null,
+        svgArt: `
+          <svg viewBox="0 0 400 260" class="w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="dcBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#271611"/><stop offset="100%" stop-color="#110907"/></linearGradient>
+              <linearGradient id="dcBox" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3E2018"/><stop offset="100%" stop-color="#24110C"/></linearGradient>
+              <linearGradient id="dcGold" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FCD34D"/><stop offset="50%" stop-color="#F59E0B"/><stop offset="100%" stop-color="#B45309"/></linearGradient>
+            </defs>
+            <rect width="400" height="260" fill="url(#dcBg)"/>
+            <ellipse cx="200" cy="222" rx="125" ry="12" fill="#000" opacity="0.7"/>
+            <!-- Isometric Luxury Rigid Box -->
+            <polygon points="88,78 312,78 326,208 74,208" fill="url(#dcBox)" stroke="#78350F" stroke-width="1.5"/>
+            <polygon points="88,78 312,78 302,54 98,54" fill="#4E281E" stroke="#92400E" stroke-width="1"/>
+            <!-- Modular Gold Foil Sleeve -->
+            <polygon points="154,54 246,54 252,208 148,208" fill="#180C09" stroke="url(#dcGold)" stroke-width="1.6"/>
+            <!-- Geometric Cocoa Diamond Emblem -->
+            <polygon points="200,92 224,116 200,140 176,116" fill="none" stroke="url(#dcGold)" stroke-width="2"/>
+            <polygon points="200,101 215,116 200,131 185,116" fill="url(#dcGold)" opacity="0.85"/>
+            <text x="200" y="162" text-anchor="middle" fill="#FDE68A" font-family="Syne, sans-serif" font-weight="800" font-size="13" letter-spacing="2">DeCHOCLATIER</text>
+            <text x="200" y="178" text-anchor="middle" fill="#D6D3D1" font-family="JetBrains Mono, monospace" font-size="7.5" letter-spacing="1.5">SINGLE-ORIGIN COLLECTION</text>
+          </svg>
+        `
+      },
+      {
+        id: 'm3',
+        brand: 'Burger N Beast',
+        title: 'Street-Culture QSR Burger Box & Wrap System',
+        category: 'MOCKUPS',
+        categoryLabel: '3D & BRAND MOCKUPS',
+        problem: 'Delivery packaging lost visual punch in transit and lacked recognizable branding for customer social media unboxing photos.',
+        solution: 'Created high-contrast street-art typography, bold crimson-amber wraps, and custom monster-bite die-cut vents that turned every delivery box into a brand billboard.',
+        tools: ['Illustrator', 'Blender 3D', 'Custom Die-Cut', 'Kraft Print'],
+        imageUrl: null,
+        svgArt: `
+          <svg viewBox="0 0 400 260" class="w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bbBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#290D09"/><stop offset="100%" stop-color="#0F0B0D"/></linearGradient>
+              <linearGradient id="bbBox" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#DC2626"/><stop offset="100%" stop-color="#991B1B"/></linearGradient>
+            </defs>
+            <rect width="400" height="260" fill="url(#bbBg)"/>
+            <ellipse cx="195" cy="226" rx="115" ry="12" fill="#000" opacity="0.7"/>
+            <!-- Soda Cup Behind -->
+            <polygon points="246,56 296,56 288,186 254,186" fill="#18181B" stroke="#F59E0B" stroke-width="1.5"/>
+            <rect x="242" y="48" width="58" height="9" rx="4" fill="#F59E0B"/>
+            <line x1="276" y1="24" x2="270" y2="48" stroke="#FBBF24" stroke-width="4" stroke-linecap="round"/>
+            <!-- Clamshell Burger Box -->
+            <polygon points="94,116 252,116 266,214 80,214" fill="url(#bbBox)" stroke="#F59E0B" stroke-width="2"/>
+            <polygon points="104,82 242,82 252,116 94,116" fill="#F59E0B"/>
+            <!-- Bold QSR Typography -->
+            <text x="173" y="104" text-anchor="middle" fill="#0B0B0D" font-family="Syne, sans-serif" font-weight="800" font-size="13" letter-spacing="1">UNLEASH THE BEAST</text>
+            <text x="173" y="156" text-anchor="middle" fill="#FEF2F2" font-family="Syne, sans-serif" font-weight="800" font-size="20" letter-spacing="1">BURGER N</text>
+            <text x="173" y="180" text-anchor="middle" fill="#FBBF24" font-family="Syne, sans-serif" font-weight="800" font-size="22" letter-spacing="2">BEAST</text>
+            <rect x="123" y="191" width="100" height="13" rx="6" fill="#0B0B0D"/>
+            <text x="173" y="200" text-anchor="middle" fill="#FBBF24" font-family="JetBrains Mono, monospace" font-size="7" font-weight="700">SIGNATURE SMASH SERIES</text>
+          </svg>
+        `
+      },
+      {
+        id: 'm4',
+        brand: 'Nature Honey',
+        title: 'Raw Forest Honey Transparent Jar Label',
+        category: 'PACKAGING',
+        categoryLabel: 'PACKAGING & LABELS',
+        problem: 'Commercial honey shelves were overcrowded with generic yellow labels, making it hard to prove 100% raw, unfiltered purity.',
+        solution: 'Used clear die-cut label stock so the natural golden honey acts as the background color, framed by crisp obsidian honeycomb vector linework and a kraft neck seal.',
+        tools: ['Illustrator', 'Clear PP Label Stock', '3D Glass Shader'],
+        imageUrl: null,
+        svgArt: `
+          <svg viewBox="0 0 400 260" class="w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="nhBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1E170A"/><stop offset="100%" stop-color="#0D0B08"/></linearGradient>
+              <linearGradient id="nhLiquid" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FBBF24"/><stop offset="55%" stop-color="#D97706"/><stop offset="100%" stop-color="#92400E"/></linearGradient>
+            </defs>
+            <rect width="400" height="260" fill="url(#nhBg)"/>
+            <ellipse cx="200" cy="232" rx="74" ry="10" fill="#000" opacity="0.7"/>
+            <!-- Glass Honey Jar Body -->
+            <rect x="136" y="74" width="128" height="152" rx="22" fill="url(#nhLiquid)" stroke="#FDE68A" stroke-width="1.5"/>
+            <!-- Glass Specular Highlight -->
+            <rect x="148" y="84" width="12" height="130" rx="6" fill="#FFFFFF" opacity="0.28"/>
+            <!-- Gold Lid & Kraft Tamper Seal -->
+            <rect x="148" y="46" width="104" height="24" rx="6" fill="#18181B" stroke="#F59E0B" stroke-width="1.5"/>
+            <rect x="192" y="46" width="16" height="44" rx="3" fill="#D97706"/>
+            <!-- Transparent Label Frame -->
+            <rect x="154" y="106" width="92" height="92" rx="14" fill="#0B0B0D" fill-opacity="0.82" stroke="#FDE68A" stroke-width="1.4"/>
+            <!-- Hexagon Honeycomb Icon -->
+            <polygon points="200,116 213,124 213,138 200,146 187,138 187,124" fill="none" stroke="#FBBF24" stroke-width="1.8"/>
+            <text x="200" y="164" text-anchor="middle" fill="#FEF3C7" font-family="Syne, sans-serif" font-weight="800" font-size="12" letter-spacing="1.5">NATURE</text>
+            <text x="200" y="178" text-anchor="middle" fill="#FBBF24" font-family="Syne, sans-serif" font-weight="800" font-size="12" letter-spacing="2">HONEY</text>
+            <text x="200" y="191" text-anchor="middle" fill="#D6D3D1" font-family="JetBrains Mono, monospace" font-size="6.8">RAW • UNFILTERED • 500G</text>
+          </svg>
+        `
+      },
+      {
+        id: 'm5',
+        brand: 'Grovel Personal Care',
+        title: 'Reetha & Hibiscus — 3D & ComfyUI Studio Render',
+        category: 'MOCKUPS',
+        categoryLabel: '3D & BRAND MOCKUPS',
+        problem: 'Needed photorealistic studio e-commerce hero imagery before physical bottle manufacturing was completed.',
+        solution: 'Built 3D apothecary bottle renders in Blender enhanced with ComfyUI rim-lighting workflows, delivering launch-ready campaign visuals weeks ahead of print.',
+        tools: ['Blender 3D', 'ComfyUI Lighting', 'Illustrator Label'],
+        imageUrl: null,
+        svgArt: `
+          <svg viewBox="0 0 400 260" class="w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="grBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1E1318"/><stop offset="100%" stop-color="#0B0B0D"/></linearGradient>
+              <linearGradient id="grBottle" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#451A03"/><stop offset="45%" stop-color="#9A3412"/><stop offset="100%" stop-color="#290F04"/></linearGradient>
+            </defs>
+            <rect width="400" height="260" fill="url(#grBg)"/>
+            <!-- Studio Rim Glow -->
+            <circle cx="200" cy="140" r="85" fill="#F43F5E" opacity="0.14"/>
+            <ellipse cx="200" cy="234" rx="64" ry="9" fill="#000" opacity="0.75"/>
+            <!-- Pump Dispenser Neck -->
+            <rect x="188" y="54" width="24" height="24" rx="3" fill="#18181B" stroke="#52525B"/>
+            <path d="M174 42 L222 42 L216 54 L192 54 Z" fill="#27272A"/>
+            <!-- Amber Apothecary Bottle -->
+            <path d="M164 96 C164 82 178 76 200 76 C222 76 236 82 236 96 L236 222 C236 228 231 232 224 232 L176 232 C169 232 164 228 164 222 Z" fill="url(#grBottle)" stroke="#FB7185" stroke-width="1"/>
+            <!-- Cream Minimalist Label -->
+            <rect x="166" y="114" width="68" height="94" fill="#F6F4EF"/>
+            <circle cx="200" cy="136" r="11" fill="#E11D48" opacity="0.85"/>
+            <text x="200" y="162" text-anchor="middle" fill="#0B0B0D" font-family="Syne, sans-serif" font-weight="800" font-size="11" letter-spacing="1.5">GROVEL</text>
+            <text x="200" y="176" text-anchor="middle" fill="#9F1239" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="7.5">REETHA &amp; HIBISCUS</text>
+            <text x="200" y="196" text-anchor="middle" fill="#57534E" font-family="JetBrains Mono, monospace" font-size="6.5">HERBAL CLEANSER • 300ML</text>
+          </svg>
+        `
+      },
+      {
+        id: 'm6',
+        brand: 'Thrill City',
+        title: 'Award-Winning Festival OOH & Cinema Campaign',
+        category: 'CAMPAIGN',
+        categoryLabel: 'CAMPAIGN & PRINT',
+        problem: 'Had to launch a high-energy city-wide festival campaign under an ultra-tight deadline that commanded instant readability from 100 meters away.',
+        solution: 'Focused on a single high-contrast focal silhouette, oversized kinetic display typography, and neon-amber depth cues—winning the Best Campaign Execution Award.',
+        tools: ['Photoshop', 'Illustrator', 'Large-Format OOH', 'PVR Cinema'],
+        imageUrl: null,
+        svgArt: `
+          <svg viewBox="0 0 400 260" class="w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="tcBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1E1B4B"/><stop offset="100%" stop-color="#09090B"/></linearGradient>
+              <linearGradient id="tcScreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F59E0B"/><stop offset="55%" stop-color="#EA580C"/><stop offset="100%" stop-color="#9D174D"/></linearGradient>
+            </defs>
+            <rect width="400" height="260" fill="url(#tcBg)"/>
+            <!-- Billboard Pillar -->
+            <rect x="190" y="178" width="20" height="68" fill="#27272A"/>
+            <rect x="165" y="242" width="70" height="8" rx="4" fill="#3F3F46"/>
+            <!-- OOH Illuminated Billboard Frame -->
+            <rect x="52" y="34" width="296" height="148" rx="10" fill="#18181B" stroke="#FBBF24" stroke-width="2.5"/>
+            <rect x="62" y="44" width="276" height="128" rx="6" fill="url(#tcScreen)"/>
+            <!-- Dynamic Speed Lines -->
+            <line x1="70" y1="150" x2="330" y2="75" stroke="#FFF" stroke-width="2" opacity="0.25"/>
+            <line x1="90" y1="165" x2="335" y2="105" stroke="#FFF" stroke-width="3" opacity="0.2"/>
+            <text x="200" y="96" text-anchor="middle" fill="#0B0B0D" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" letter-spacing="3">HYDERABAD'S BIGGEST</text>
+            <text x="200" y="128" text-anchor="middle" fill="#FFFFFF" font-family="Syne, sans-serif" font-weight="800" font-size="28" letter-spacing="1.5">THRILL CITY</text>
+            <rect x="130" y="140" width="140" height="18" rx="9" fill="#0B0B0D"/>
+            <text x="200" y="152" text-anchor="middle" fill="#FBBF24" font-family="JetBrains Mono, monospace" font-weight="700" font-size="8">FESTIVAL CARNIVAL LIVE</text>
+          </svg>
+        `
+      },
+      {
+        id: 'm7',
+        brand: 'Cafe Deccan Bakery',
+        title: 'Heritage Osmania Biscuit Tin & Takeaway Box',
+        category: 'PACKAGING',
+        categoryLabel: 'PACKAGING & LABELS',
+        problem: 'A beloved local bakery needed to modernize its takeaway packaging for festive retail gifting without losing its nostalgic Hyderabadi soul.',
+        solution: 'Blended classic Deccan architectural arch geometry with clean modern sans-serif typography and warm tactile terracotta-cream finishes.',
+        tools: ['Illustrator', 'Tin Lithography', 'Pattern Vector'],
+        imageUrl: null,
+        svgArt: `
+          <svg viewBox="0 0 400 260" class="w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cdbBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#291D16"/><stop offset="100%" stop-color="#120E0B"/></linearGradient>
+              <linearGradient id="cdbTin" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#D97706"/><stop offset="50%" stop-color="#F59E0B"/><stop offset="100%" stop-color="#B45309"/></linearGradient>
+            </defs>
+            <rect width="400" height="260" fill="url(#cdbBg)"/>
+            <ellipse cx="200" cy="226" rx="108" ry="11" fill="#000" opacity="0.65"/>
+            <!-- Heritage Tin Body -->
+            <rect x="106" y="76" width="188" height="144" rx="14" fill="#F6F4EF" stroke="#D97706" stroke-width="2"/>
+            <!-- Rolled Metallic Lid -->
+            <rect x="100" y="60" width="200" height="22" rx="8" fill="url(#cdbTin)"/>
+            <!-- Deccan Arch Motif -->
+            <path d="M142 204 L142 126 Q200 84 258 126 L258 204 Z" fill="#1C1917" stroke="#D97706" stroke-width="2"/>
+            <text x="200" y="144" text-anchor="middle" fill="#FBBF24" font-family="Syne, sans-serif" font-weight="800" font-size="13" letter-spacing="1.5">CAFE DECCAN</text>
+            <text x="200" y="160" text-anchor="middle" fill="#F6F4EF" font-family="Syne, sans-serif" font-weight="700" font-size="11" letter-spacing="2">BAKERY</text>
+            <text x="200" y="182" text-anchor="middle" fill="#D6D3D1" font-family="JetBrains Mono, monospace" font-size="7">ARTISANAL HYDERABADI BAKES</text>
+          </svg>
+        `
+      },
+      {
+        id: 'm8',
+        brand: 'Master Vector Architecture',
+        title: 'Legacy Raster-to-Vector Brand Reconstruction',
+        category: 'MOCKUPS',
+        categoryLabel: '3D & BRAND MOCKUPS',
+        problem: 'Client logos suffered from jagged pixelation and color shifts across large-format highway hoardings, embroidery, and backlit signage.',
+        solution: 'Rebuilt brand marks from scratch in Adobe Illustrator using golden-ratio Bezier anchor geometry and locked Pantone/CMYK color specifications.',
+        tools: ['Adobe Illustrator', 'Bezier Grid', 'CMYK / SVG Master'],
+        imageUrl: null,
+        svgArt: `
+          <svg viewBox="0 0 400 260" class="w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="260" fill="#0E0E12"/>
+            <!-- Grid Lines -->
+            <g stroke="#FFFFFF" stroke-opacity="0.06" stroke-width="1">
+              <line x1="0" y1="65" x2="400" y2="65"/><line x1="0" y1="130" x2="400" y2="130"/><line x1="0" y1="195" x2="400" y2="195"/>
+              <line x1="100" y1="0" x2="100" y2="260"/><line x1="200" y1="0" x2="200" y2="260"/><line x1="300" y1="0" x2="300" y2="260"/>
+            </g>
+            <!-- Golden Ratio Construction Circles -->
+            <circle cx="200" cy="130" r="76" fill="none" stroke="#F59E0B" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+            <circle cx="200" cy="130" r="48" fill="none" stroke="#38BDF8" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>
+            <!-- Precision Vector Monogram Path -->
+            <path d="M162 158 L162 102 L200 132 L238 102 L238 158" fill="none" stroke="#F6F4EF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Bezier Tangent Handles & Anchor Nodes -->
+            <line x1="134" y1="102" x2="190" y2="102" stroke="#F59E0B" stroke-width="1.2"/>
+            <circle cx="134" cy="102" r="3" fill="#F59E0B"/>
+            <circle cx="190" cy="102" r="3" fill="#F59E0B"/>
+            <rect x="158" y="98" width="8" height="8" fill="#F6F4EF" stroke="#F59E0B" stroke-width="2"/>
+            <rect x="196" y="128" width="8" height="8" fill="#F6F4EF" stroke="#F59E0B" stroke-width="2"/>
+            <rect x="234" y="98" width="8" height="8" fill="#F6F4EF" stroke="#F59E0B" stroke-width="2"/>
+            <rect x="158" y="154" width="8" height="8" fill="#F6F4EF" stroke="#F59E0B" stroke-width="2"/>
+            <rect x="234" y="154" width="8" height="8" fill="#F6F4EF" stroke="#F59E0B" stroke-width="2"/>
+            <text x="200" y="232" text-anchor="middle" fill="#F59E0B" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" letter-spacing="2">INFINITE SCALE • 0.001MM VECTOR TOLERANCE</text>
+          </svg>
+        `
+      }
+    ];
+
+    // Load saved custom mockups from localStorage if present
+    let mockupGalleryData = [];
+    try {
+      const saved = localStorage.getItem('sudheer_kade_mockups_v1');
+      if (saved) {
+        mockupGalleryData = JSON.parse(saved);
+      } else {
+        mockupGalleryData = [...defaultMockupGallery];
+      }
+    } catch (e) {
+      mockupGalleryData = [...defaultMockupGallery];
+    }
+
+    function saveGalleryToStorage() {
+      try {
+        localStorage.setItem('sudheer_kade_mockups_v1', JSON.stringify(mockupGalleryData));
+      } catch (e) {
+        // Ignore quota limits if large images are uploaded
+      }
+    }
+
+    // -----------------------------------------------------------------------
+    // 0B. RENDER MOCKUPS & PACKAGING GALLERY + LIGHTBOX + UPLOAD HANDLERS
+    // -----------------------------------------------------------------------
+    const mockupGrid = document.getElementById('mockup-gallery-grid');
+    const galleryFilterBtns = document.querySelectorAll('.gallery-filter-btn');
+    let currentGalleryFilter = 'ALL';
+    let activeLightboxItemId = null;
+    let isLightboxZoomed = false;
+
+    function renderMockupGallery(filter = 'ALL') {
+      currentGalleryFilter = filter;
+      const countAllEl = document.getElementById('gallery-count-all');
+      if (countAllEl) countAllEl.textContent = mockupGalleryData.length;
+
+      const items = filter === 'ALL'
+        ? mockupGalleryData
+        : mockupGalleryData.filter(item => item.category === filter);
+
+      mockupGrid.innerHTML = items.map((item, idx) => `
+        <article
+          onclick="openGalleryLightbox('${item.id}')"
+          class="tilt-card group rounded-3xl bg-obsidianCard border border-white/10 hover:border-amberGold/80 overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 shadow-lg"
+          style="animation: heroLineRise 0.55s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 45}ms both;"
+          data-cursor="INSPECT"
+        >
+          <div class="glare-layer"></div>
+
+          <!-- Top Visual Frame (Mockup Image or Studio SVG) -->
+          <div class="relative z-10">
+            <div class="relative aspect-[16/10] w-full bg-obsidian overflow-hidden border-b border-white/10">
+              <div class="w-full h-full transition-transform duration-500 ease-out group-hover:scale-105">
+                ${item.imageUrl
+                  ? `<img src="${item.imageUrl}" alt="${item.title}" class="w-full h-full object-cover" />`
+                  : item.svgArt}
+              </div>
+
+              <!-- Top Overlay Badges -->
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 pointer-events-none">
+                <span class="font-mono text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-lg bg-obsidian/85 text-amberGold border border-amberGold/30 backdrop-blur-md">
+                  ${item.brand}
+                </span>
+                <span class="font-mono text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded-lg bg-obsidian/85 text-neutral-300 border border-white/10 backdrop-blur-md">
+                  ${item.categoryLabel.split('&')[0].trim()}
+                </span>
+              </div>
+            </div>
+
+            <!-- Card Body: Title + Problem & Solved Mini-Blocks -->
+            <div class="p-6 space-y-4">
+              <h3 class="font-display font-bold text-lg sm:text-xl text-cream group-hover:text-amberGold transition-colors leading-snug">
+                ${item.title}
+              </h3>
+
+              <!-- Problem Block -->
+              <div class="p-3 rounded-2xl bg-rose-500/[0.06] border border-rose-500/20">
+                <div class="flex items-center gap-1.5 mb-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
+                  <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-rose-300">THE PROBLEM</span>
+                </div>
+                <p class="text-xs sm:text-[13px] text-neutral-300 leading-relaxed">
+                  ${item.problem}
+                </p>
+              </div>
+
+              <!-- Solved Block -->
+              <div class="p-3 rounded-2xl bg-emerald-500/[0.06] border border-emerald-500/20">
+                <div class="flex items-center gap-1.5 mb-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-emerald-300">HOW I SOLVED IT</span>
+                </div>
+                <p class="text-xs sm:text-[13px] text-neutral-200 leading-relaxed">
+                  ${item.solution}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer Inspect Bar -->
+          <div class="relative z-10 px-6 py-4 bg-white/[0.02] border-t border-white/10 flex items-center justify-between">
+            <span class="font-mono text-[11px] text-neutral-400 group-hover:text-cream transition-colors">Inspect Mockup &amp; Breakdown</span>
+            <span class="w-8 h-8 rounded-xl bg-white/5 group-hover:bg-amberGold text-cream group-hover:text-obsidian flex items-center justify-center transition-all duration-300">
+              <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+              </svg>
+            </span>
+          </div>
+        </article>
+      `).join('');
+
+      attachTiltListeners();
+      attachCursorHoverListeners();
+    }
+
+    galleryFilterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        galleryFilterBtns.forEach(b => {
+          b.classList.remove('active', 'bg-amberGold', 'text-obsidian', 'font-bold', 'shadow-md');
+          b.classList.add('text-neutral-300', 'hover:text-cream', 'hover:bg-white/5', 'font-semibold');
+        });
+        btn.classList.add('active', 'bg-amberGold', 'text-obsidian', 'font-bold', 'shadow-md');
+        btn.classList.remove('text-neutral-300', 'hover:text-cream', 'hover:bg-white/5', 'font-semibold');
+        renderMockupGallery(btn.dataset.galleryFilter);
+      });
+    });
+
+    // Lightbox Open / Close / Zoom / Replace Image
+    const galleryLightbox = document.getElementById('gallery-lightbox-modal');
+    const lbVisualContainer = document.getElementById('lb-visual-container');
+    const lbZoomBtn = document.getElementById('lb-zoom-toggle');
+
+    function openGalleryLightbox(id) {
+      const item = mockupGalleryData.find(m => m.id === id);
+      if (!item) return;
+
+      activeLightboxItemId = id;
+      isLightboxZoomed = false;
+      lbVisualContainer.style.transform = 'scale(1)';
+      lbZoomBtn.textContent = 'Zoom 1.4x';
+
+      document.getElementById('lb-category').textContent = item.categoryLabel;
+      document.getElementById('lb-brand').textContent = item.brand;
+      document.getElementById('lb-title').textContent = item.title;
+      document.getElementById('lb-problem').textContent = item.problem;
+      document.getElementById('lb-solution').textContent = item.solution;
+
+      document.getElementById('lb-tools').innerHTML = (item.tools || ['Illustrator', 'Packaging'])
+        .map(t => `<span class="font-mono text-[10px] font-semibold px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-neutral-300">${t}</span>`)
+        .join('');
+
+      lbVisualContainer.innerHTML = item.imageUrl
+        ? `<img src="${item.imageUrl}" alt="${item.title}" class="max-h-[420px] w-auto rounded-2xl shadow-2xl object-contain" />`
+        : `<div class="w-full max-w-lg rounded-2xl overflow-hidden border border-white/10 shadow-2xl">${item.svgArt}</div>`;
+
+      galleryLightbox.classList.remove('hidden');
+      galleryLightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeGalleryLightbox() {
+      galleryLightbox.classList.add('hidden');
+      galleryLightbox.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    lbZoomBtn.addEventListener('click', () => {
+      isLightboxZoomed = !isLightboxZoomed;
+      lbVisualContainer.style.transform = isLightboxZoomed ? 'scale(1.4)' : 'scale(1)';
+      lbZoomBtn.textContent = isLightboxZoomed ? 'Reset Zoom' : 'Zoom 1.4x';
+    });
+
+    document.getElementById('lb-replace-image-input').addEventListener('change', (e) => {
+      const file = e.target.files?.[0];
+      if (!file || !activeLightboxItemId) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        const idx = mockupGalleryData.findIndex(m => m.id === activeLightboxItemId);
+        if (idx !== -1) {
+          mockupGalleryData[idx].imageUrl = ev.target.result;
+          saveGalleryToStorage();
+          renderMockupGallery(currentGalleryFilter);
+          openGalleryLightbox(activeLightboxItemId);
+          showToast('Mockup image updated!');
+        }
+      };
+      reader.readAsDataURL(file);
+    });
+
+    document.getElementById('close-gallery-lightbox').addEventListener('click', closeGalleryLightbox);
+    galleryLightbox.addEventListener('click', (e) => {
+      if (e.target === galleryLightbox) closeGalleryLightbox();
+    });
+
+    // Add New Mockup Upload Modal Handlers
+    const uploadModal = document.getElementById('upload-mockup-modal');
+    const newMockupFileInput = document.getElementById('new-mockup-file');
+    let pendingUploadDataUrl = null;
+
+    document.getElementById('open-upload-mockup-btn').addEventListener('click', () => {
+      pendingUploadDataUrl = null;
+      document.getElementById('new-mockup-filename').textContent = 'Click to select PNG, JPG, or WEBP mockup';
+      uploadModal.classList.remove('hidden');
+      uploadModal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    });
+
+    function closeUploadModal() {
+      uploadModal.classList.add('hidden');
+      uploadModal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('close-upload-modal').addEventListener('click', closeUploadModal);
+    document.getElementById('cancel-upload-modal').addEventListener('click', closeUploadModal);
+    uploadModal.addEventListener('click', (e) => {
+      if (e.target === uploadModal) closeUploadModal();
+    });
+
+    newMockupFileInput.addEventListener('change', (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      document.getElementById('new-mockup-filename').textContent = `Selected: ${file.name}`;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        pendingUploadDataUrl = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    document.getElementById('upload-mockup-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!pendingUploadDataUrl) {
+        showToast('Please choose a mockup image file first.');
+        return;
+      }
+
+      const brand = document.getElementById('new-mockup-brand').value.trim();
+      const cat = document.getElementById('new-mockup-category').value;
+      const title = document.getElementById('new-mockup-title').value.trim();
+      const problem = document.getElementById('new-mockup-problem').value.trim();
+      const solution = document.getElementById('new-mockup-solution').value.trim();
+
+      const catLabels = {
+        PACKAGING: 'PACKAGING & LABELS',
+        MOCKUPS: '3D & BRAND MOCKUPS',
+        CAMPAIGN: 'CAMPAIGN & PRINT'
+      };
+
+      const newItem = {
+        id: 'm_' + Date.now(),
+        brand,
+        title,
+        category: cat,
+        categoryLabel: catLabels[cat] || 'PACKAGING & LABELS',
+        problem,
+        solution,
+        tools: ['Adobe Illustrator', 'Custom Mockup', 'Brand Direction'],
+        imageUrl: pendingUploadDataUrl,
+        svgArt: ''
+      };
+
+      mockupGalleryData.unshift(newItem);
+      saveGalleryToStorage();
+      renderMockupGallery(currentGalleryFilter);
+      e.target.reset();
+      closeUploadModal();
+      showToast(`"${title}" published to Mockups Gallery!`);
+    });
+
+    // -----------------------------------------------------------------------
+    // 1. COMPLETE 17-BRAND PORTFOLIO DATASET
+    // -----------------------------------------------------------------------
+    const brandsData = [
+      // GROUP A: FOOD, BEVERAGE & HOSPITALITY (7)
+      {
+        id: 1,
+        name: "Cafe Bahar",
+        group: "GROUP_A",
+        groupLabel: "GROUP A • FOOD & HOSPITALITY",
+        monogram: "CB",
+        accent: "from-amber-600/30 to-orange-900/30",
+        tagline: "Iconic Hyderabad Culinary Heritage",
+        summary: "Iconic Hyderabad culinary heritage branding, promotional campaign creatives, menu systems, and high-appetite visual storytelling.",
+        deliverables: ["Heritage Campaign Creatives", "Restaurant Menu Architecture", "High-Appetite Food Visuals", "Digital & Print Promotions"],
+        direction: "Warm heritage gold & deep spice tones celebrating authentic Hyderabadi culinary legacy."
+      },
+      {
+        id: 2,
+        name: "Bawarchi",
+        group: "GROUP_A",
+        groupLabel: "GROUP A • FOOD & HOSPITALITY",
+        monogram: "BW",
+        accent: "from-red-700/30 to-amber-900/30",
+        tagline: "Legendary Dining & Hospitality Campaigns",
+        summary: "High-impact food & hospitality marketing collateral, brand consistency assets, and festive campaign visuals for a legendary dining name.",
+        deliverables: ["Festive Campaign Key Visuals", "Brand Consistency Guidelines", "In-Store & OOH Collateral", "Social Media Launch Grids"],
+        direction: "Bold royal contrast and unmistakable hospitality typography crafted for instant city-wide recall."
+      },
+      {
+        id: 3,
+        name: "Cafe Deccan Bakery",
+        group: "GROUP_A",
+        groupLabel: "GROUP A • FOOD & HOSPITALITY",
+        monogram: "CD",
+        accent: "from-amber-500/30 to-yellow-900/30",
+        tagline: "Artisanal Bakery Branding & Packaging",
+        summary: "Warm, artisanal bakery branding, packaging graphics, product showcase visuals, and retail promotional displays.",
+        deliverables: ["Artisanal Box & Pouch Packaging", "Retail Display Graphics", "Product Photography Direction", "Brand Identity System"],
+        direction: "Warm oven-baked cream & roasted cocoa palette evoking freshness and neighborhood charm."
+      },
+      {
+        id: 4,
+        name: "Naaz Mandi",
+        group: "GROUP_A",
+        groupLabel: "GROUP A • FOOD & HOSPITALITY",
+        monogram: "NM",
+        accent: "from-orange-600/30 to-stone-900/40",
+        tagline: "Culturally Resonant Dining Identity",
+        summary: "Rich, culturally resonant restaurant branding, dining experience visuals, menu architecture, and digital promotional campaigns.",
+        deliverables: ["Custom Logotype & Monogram", "Multi-Page Dining Menu System", "Ambient Signage & Wall Graphics", "Promotional Ad Creatives"],
+        direction: "Regal Arabian-inspired geometric motifs blended with modern editorial hospitality layouts."
+      },
+      {
+        id: 5,
+        name: "Burger N Beast",
+        group: "GROUP_A",
+        groupLabel: "GROUP A • FOOD & HOSPITALITY",
+        monogram: "BB",
+        accent: "from-orange-500/35 to-red-900/35",
+        tagline: "High-Energy Youth QSR Brand Identity",
+        summary: "Bold, high-energy QSR brand identity, aggressive youth-centric typography, packaging graphics, and mouth-watering social ad campaigns.",
+        deliverables: ["QSR Logo & Mascot Typography", "Burger Wraps, Boxes & Cup Dielines", "High-Conversion Social Ad Reels", "Storefront Menu Boards"],
+        direction: "Punchy street-culture display typography, high-contrast flame accents, and bold tactile packaging."
+      },
+      {
+        id: 6,
+        name: "DeChoclatier",
+        group: "GROUP_A",
+        groupLabel: "GROUP A • FOOD & HOSPITALITY",
+        monogram: "DC",
+        accent: "from-amber-700/35 to-neutral-900/50",
+        tagline: "Luxury Confectionery & Artisan Packaging",
+        summary: "Indulgent, luxury confectionery and artisan chocolate packaging, bespoke gift box aesthetics, and rich product campaign visuals.",
+        deliverables: ["Bespoke Luxury Gift Box Dielines", "Gold-Foil Stamp Print Specs", "3D Confectionery Mockups", "Festive Gifting Lookbooks"],
+        direction: "Velvety dark espresso tones paired with metallic gold foil finishes and tactile unboxing details."
+      },
+      {
+        id: 7,
+        name: "Nature Honey",
+        group: "GROUP_A",
+        groupLabel: "GROUP A • FOOD & HOSPITALITY",
+        monogram: "NH",
+        accent: "from-yellow-500/30 to-amber-800/30",
+        tagline: "Pure Organic Retail Shelf Packaging",
+        summary: "Pure, organic food packaging design, natural golden-toned label hierarchy, and trust-driven retail shelf branding.",
+        deliverables: ["Jar Label & Tamper-Seal Dielines", "Nutritional & Purity Iconography", "3D Studio Bottle Renders", "Retail Shelf Talkers"],
+        direction: "Translucent amber-gold visual hierarchy emphasizing raw purity, organic origin, and shelf trust."
+      },
+
+      // GROUP B: WELLNESS, AYURVEDA & CARE (3)
+      {
+        id: 8,
+        name: "Kapiva",
+        group: "GROUP_B",
+        groupLabel: "GROUP B • WELLNESS & AYURVEDA",
+        monogram: "KP",
+        accent: "from-emerald-600/30 to-teal-900/30",
+        tagline: "Modern Ayurvedic Digital Storytelling",
+        summary: "Strategic digital campaign visuals, health and Ayurvedic product storytelling, and high-converting performance creatives.",
+        deliverables: ["Performance Ad Creative Suite", "Ingredient Benefit Infographics", "D2C Launch Visual Systems", "Social Storytelling Carousels"],
+        direction: "Clean botanical minimalism paired with clinical clarity for modern Ayurvedic wellness consumers."
+      },
+      {
+        id: 9,
+        name: "Grovel",
+        group: "GROUP_B",
+        groupLabel: "GROUP B • WELLNESS & AYURVEDA",
+        monogram: "GR",
+        accent: "from-lime-600/30 to-emerald-950/40",
+        tagline: "Ayurvedic Packaging & Brand Architecture",
+        summary: "Comprehensive brand identity proposals, Ayurvedic wellness packaging label mockups (Grovel Amrutha Dia Choornam & Reetha-Hibiscus), vector conversions, and commercial ad storytelling.",
+        deliverables: ["Complete Brand Identity Proposal", "Amrutha Dia Choornam & Reetha-Hibiscus Labels", "High-Precision Vectorization", "3D Studio Mockups & Commercial Ads"],
+        direction: "Authentic herbal formulation typography, regulatory compliance layouts, and photorealistic 3D renders."
+      },
+      {
+        id: 10,
+        name: "Zaalive",
+        group: "GROUP_B",
+        groupLabel: "GROUP B • WELLNESS & AYURVEDA",
+        monogram: "ZL",
+        accent: "from-teal-500/30 to-cyan-900/30",
+        tagline: "Vibrant Wellness & Lifestyle Branding",
+        summary: "Vibrant wellness and lifestyle brand visuals, modern packaging aesthetics, and digital brand launch creatives.",
+        deliverables: ["Brand Identity & Color System", "Modern Lifestyle Packaging", "Digital Launch Campaign Assets", "Social Visual Grid"],
+        direction: "Fresh, uplifting botanical hues designed to stand out in contemporary wellness and self-care retail."
+      },
+
+      // GROUP C: ENTERTAINMENT, LIFESTYLE & RETAIL (4)
+      {
+        id: 11,
+        name: "Thrill City",
+        group: "GROUP_C",
+        groupLabel: "GROUP C • ENTERTAINMENT & RETAIL",
+        monogram: "TC",
+        accent: "from-amber-500/35 to-rose-900/35",
+        tagline: "Award-Winning Festival & Park Campaigns",
+        summary: "Award-winning high-velocity advertising campaign, festival launch visuals, out-of-home displays, and high-energy promotional media executed under tight deadlines.",
+        deliverables: ["Award-Winning Festival Campaign", "OOH Hoardings & Transit Ads", "Motion Promo & Event Reels", "Park Wayfinding & Collateral"],
+        direction: "Electric kinetic color bursts and dynamic motion framing built for maximum footfall impact."
+      },
+      {
+        id: 12,
+        name: "Luxurio Boutique",
+        group: "GROUP_C",
+        groupLabel: "GROUP C • ENTERTAINMENT & RETAIL",
+        monogram: "LB",
+        accent: "from-stone-500/30 to-amber-900/30",
+        tagline: "Haute Couture & Luxury Retail Identity",
+        summary: "Sophisticated fashion and luxury retail visual identity, editorial lookbook layouts, and refined brand collateral.",
+        deliverables: ["Bespoke Couture Monogram", "Seasonal Editorial Lookbooks", "Luxury Carry-Bag & Tag Specs", "VIP Invitation Suites"],
+        direction: "High-fashion serif contrast, generous negative space, and tactile paper-stock finishes."
+      },
+      {
+        id: 13,
+        name: "Alexander Saloons",
+        group: "GROUP_C",
+        groupLabel: "GROUP C • ENTERTAINMENT & RETAIL",
+        monogram: "AS",
+        accent: "from-neutral-600/35 to-amber-900/30",
+        tagline: "Contemporary Grooming & Salon Aesthetics",
+        summary: "Sleek, contemporary grooming and salon brand aesthetics, service menu design, and modern lifestyle promotional campaigns.",
+        deliverables: ["Salon Brand Identity Refresh", "Tactile Service & Pricing Menus", "In-Salon Mirror & Wall Branding", "Seasonal Makeover Campaigns"],
+        direction: "Sharp architectural monochrome balanced with warm champagne-gold grooming accents."
+      },
+      {
+        id: 14,
+        name: "Hands of Art Studio",
+        group: "GROUP_C",
+        groupLabel: "GROUP C • ENTERTAINMENT & RETAIL",
+        monogram: "HA",
+        accent: "from-indigo-600/30 to-purple-950/40",
+        tagline: "Expressive Creative & Exhibition Identity",
+        summary: "Expressive creative studio identity, artistic visual direction, and bespoke portfolio/exhibition collateral.",
+        deliverables: ["Artistic Studio Mark & System", "Exhibition Catalogs & Posters", "Digital Portfolio Direction", "Curated Print Collateral"],
+        direction: "Gallery-grade editorial typography celebrating handcrafted artistry and bespoke visual curation."
+      },
+
+      // GROUP D: CORPORATE, LOGISTICS & INDUSTRIAL (3)
+      {
+        id: 15,
+        name: "Meechu",
+        group: "GROUP_D",
+        groupLabel: "GROUP D • CORPORATE & LOGISTICS",
+        monogram: "MC",
+        accent: "from-sky-600/30 to-slate-900/40",
+        tagline: "Versatile Corporate & Digital Brand System",
+        summary: "Distinct brand identity, versatile digital/print brand assets, and cohesive visual communication strategy.",
+        deliverables: ["Primary Logo & Vector System", "Corporate Brand Guidelines", "Digital & Print Stationery", "Pitch Deck Architecture"],
+        direction: "Geometric precision and scalable brand architecture built for multi-platform clarity."
+      },
+      {
+        id: 16,
+        name: "OGPL",
+        group: "GROUP_D",
+        groupLabel: "GROUP D • CORPORATE & LOGISTICS",
+        monogram: "OG",
+        accent: "from-blue-700/30 to-neutral-900/40",
+        tagline: "Structured Industrial & Corporate Visuals",
+        summary: "Corporate brand communication, structured visual systems, and professional presentation/marketing collateral.",
+        deliverables: ["Corporate Profile & Brochures", "Executive Presentation Systems", "Structured Information Graphics", "Brand Identity Assets"],
+        direction: "Authoritative grid-driven corporate typography conveying reliability, scale, and operational rigor."
+      },
+      {
+        id: 17,
+        name: "Hindustan International Couriers",
+        group: "GROUP_D",
+        groupLabel: "GROUP D • CORPORATE & LOGISTICS",
+        monogram: "HI",
+        accent: "from-cyan-700/30 to-blue-950/40",
+        tagline: "Global Logistics & Trust-Driven Branding",
+        summary: "Trust-focused logistics and global courier branding, corporate identity assets, and clear service communication design.",
+        deliverables: ["Global Logistics Brand Identity", "Waybill, Packaging & Fleet Graphics", "Service Tariff & Route Guides", "Corporate Digital Creatives"],
+        direction: "High-legibility directional iconography and international transit color coding for instant trust."
+      }
+    ];
+
+    // Showreels Dataset
+    const reelsData = [
+      {
+        badge: "SHOWREEL 01",
+        title: "PVR Cinemas Featured Brand Commercial",
+        desc: "Broadcast-grade theatre advertisement featured across PVR Cinemas screens—combining bold typography, cinema-calibrated color grading, and high-impact brand storytelling."
+      },
+      {
+        badge: "SHOWREEL 02",
+        title: "\"Thrill City\" Festival & Ad Campaign Motion Promo",
+        desc: "High-energy promotional motion reel created for Thrill City's festival launch, engineered for rapid audience engagement across social and digital out-of-home screens."
+      },
+      {
+        badge: "SHOWREEL 03",
+        title: "\"36 Downtown\" Award-Winning Brand Film",
+        desc: "Recipient of the Creative Excellence Award—an atmospheric destination film capturing the vibrant energy, hospitality, and lifestyle pulse of 36 Downtown."
+      },
+      {
+        badge: "SHOWREEL 04",
+        title: "Product Packaging & 3D / ComfyUI Commercial Visuals",
+        desc: "Photorealistic 3D product renders and AI-enhanced studio lighting sequences created in Blender and ComfyUI for Grovel, DeChoclatier, and Burger N Beast."
+      },
+      {
+        badge: "SHOWREEL 05",
+        title: "UI/UX Micro-Animations & Lottie Motion Reel",
+        desc: "Lightweight 60fps vector micro-interactions exported from After Effects via Bodymovin Lottie JSON for modern web and mobile user interfaces."
+      }
+    ];
+
+    // -----------------------------------------------------------------------
+    // 2. RENDER BRANDS GRID & CATEGORY FILTERING
+    // -----------------------------------------------------------------------
+    const brandsGrid = document.getElementById('brands-grid');
+    const filterButtons = document.querySelectorAll('.brand-filter-btn');
+
+    function renderBrands(filter = 'ALL') {
+      const filtered = filter === 'ALL'
+        ? brandsData
+        : brandsData.filter(b => b.group === filter);
+
+      brandsGrid.innerHTML = filtered.map((brand, idx) => `
+        <article
+          onclick="openBrandModal(${brand.id})"
+          class="tilt-card group rounded-3xl bg-obsidianCard border border-white/10 hover:border-amberGold/80 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-300"
+          style="animation: heroLineRise 0.55s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 35}ms both;"
+          data-cursor="VIEW"
+        >
+          <div class="glare-layer"></div>
+          <div class="relative z-10">
+            <!-- Visual Monogram Header -->
+            <div class="flex items-center justify-between gap-3 mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-br ${brand.accent} border border-white/15 flex items-center justify-center font-display font-extrabold text-base text-cream group-hover:scale-110 group-hover:border-amberGold transition-all duration-300">
+                ${brand.monogram}
+              </div>
+              <span class="font-mono text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded-lg bg-white/[0.04] text-neutral-400 group-hover:text-amberGold transition-colors">
+                ${brand.groupLabel.split('•')[0].trim()}
+              </span>
+            </div>
+
+            <!-- Brand Name & Tagline -->
+            <h3 class="font-display font-bold text-xl sm:text-2xl text-cream group-hover:text-amberGold transition-colors">
+              ${brand.name}
+            </h3>
+            <p class="font-mono text-[11px] text-amberGold/80 uppercase tracking-wider mt-1 mb-3">
+              ${brand.tagline}
+            </p>
+            <p class="text-sm text-neutral-400 leading-relaxed line-clamp-3">
+              ${brand.summary}
+            </p>
+          </div>
+
+          <!-- Card Footer Action -->
+          <div class="relative z-10 pt-5 mt-5 border-t border-white/10 flex items-center justify-between">
+            <span class="font-mono text-[11px] text-neutral-400 group-hover:text-cream transition-colors">Inspect Case Study</span>
+            <span class="w-8 h-8 rounded-xl bg-white/5 group-hover:bg-amberGold text-cream group-hover:text-obsidian flex items-center justify-center transition-all duration-300">
+              <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+              </svg>
+            </span>
+          </div>
+        </article>
+      `).join('');
+
+      // Re-attach 3D tilt & custom cursor listeners to newly rendered cards
+      attachTiltListeners();
+      attachCursorHoverListeners();
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('active', 'bg-amberGold', 'text-obsidian', 'font-bold', 'shadow-md');
+          b.classList.add('text-neutral-300', 'hover:text-cream', 'hover:bg-white/5', 'font-semibold');
+        });
+        btn.classList.add('active', 'bg-amberGold', 'text-obsidian', 'font-bold', 'shadow-md');
+        btn.classList.remove('text-neutral-300', 'hover:text-cream', 'hover:bg-white/5', 'font-semibold');
+        renderBrands(btn.dataset.filter);
+      });
+    });
+
+    // -----------------------------------------------------------------------
+    // 3. BRAND CASE STUDY MODAL LOGIC
+    // -----------------------------------------------------------------------
+    const brandModal = document.getElementById('brand-modal');
+    function openBrandModal(id) {
+      const brand = brandsData.find(b => b.id === id);
+      if (!brand) return;
+
+      document.getElementById('brand-modal-category').textContent = brand.groupLabel;
+      document.getElementById('brand-modal-title').textContent = brand.name;
+      document.getElementById('brand-modal-tagline').textContent = brand.tagline;
+      document.getElementById('brand-modal-desc').textContent = brand.summary;
+      document.getElementById('brand-modal-direction').textContent = brand.direction;
+      document.getElementById('brand-modal-deliverables').innerHTML = brand.deliverables
+        .map(item => `<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amberGold"></span><span>${item}</span></li>`)
+        .join('');
+
+      brandModal.classList.remove('hidden');
+      brandModal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeBrandModal() {
+      brandModal.classList.add('hidden');
+      brandModal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('close-brand-modal').addEventListener('click', closeBrandModal);
+    brandModal.addEventListener('click', (e) => {
+      if (e.target === brandModal) closeBrandModal();
+    });
+
+    // -----------------------------------------------------------------------
+    // 4. SHOWREEL VIDEO MODAL & LIVE URL EMBED LOADER
+    // -----------------------------------------------------------------------
+    const reelModal = document.getElementById('reel-modal');
+    const reelStage = document.getElementById('reel-video-stage');
+    const reelUrlInput = document.getElementById('reel-custom-url-input');
+
+    function openReelModal(index) {
+      const reel = reelsData[index] || reelsData[0];
+      document.getElementById('reel-modal-badge').textContent = reel.badge;
+      document.getElementById('reel-modal-title').textContent = reel.title;
+      document.getElementById('reel-modal-desc').textContent = reel.desc;
+      reelUrlInput.value = '';
+
+      // Reset stage to default theater preview
+      reelStage.innerHTML = `
+        <div class="absolute inset-0 bg-grid-dark opacity-60"></div>
+        <div class="relative z-10 max-w-md space-y-4">
+          <div class="w-16 h-16 mx-auto rounded-full bg-amberGold/15 border border-amberGold/40 flex items-center justify-center text-amberGold">
+            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3" />
+            </svg>
+          </div>
+          <p class="text-sm text-neutral-300 leading-relaxed">${reel.desc}</p>
+          <p class="font-mono text-[11px] text-amberGold">Paste your YouTube, Vimeo, or MP4 link below to screen it live:</p>
+        </div>
+      `;
+
+      reelModal.classList.remove('hidden');
+      reelModal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeReelModal() {
+      reelModal.classList.add('hidden');
+      reelModal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.reel-card').forEach(card => {
+      card.addEventListener('click', () => {
+        openReelModal(parseInt(card.dataset.reelId, 10));
+      });
+    });
+
+    document.getElementById('close-reel-modal').addEventListener('click', closeReelModal);
+    reelModal.addEventListener('click', (e) => {
+      if (e.target === reelModal) closeReelModal();
+    });
+
+    document.getElementById('reel-load-url-btn').addEventListener('click', () => {
+      const rawUrl = reelUrlInput.value.trim();
+      if (!rawUrl) {
+        showToast('Please paste a valid YouTube, Vimeo, or video URL first.');
+        return;
+      }
+      let embedUrl = rawUrl;
+      // Convert standard YouTube watch/short URLs to embed URL
+      const ytMatch = rawUrl.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+      if (ytMatch && ytMatch[1]) {
+        embedUrl = `https://www.youtube.com/embed/${ytMatch[1]}?autoplay=1`;
+      } else if (rawUrl.includes('vimeo.com/')) {
+        const vimeoId = rawUrl.split('vimeo.com/')[1]?.split(/[?#]/)[0];
+        if (vimeoId) embedUrl = `https://player.vimeo.com/video/${vimeoId}?autoplay=1`;
+      }
+
+      reelStage.innerHTML = `<iframe src="${embedUrl}" class="w-full h-full border-0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+      showToast('Showreel stream loaded!');
+    });
+
+    // -----------------------------------------------------------------------
+    // 5. LIVE LOTTIE-STYLE VECTOR MORPH SANDBOX (SHOWREEL 05)
+    // -----------------------------------------------------------------------
+    const lottieBtn = document.getElementById('lottie-sandbox-trigger');
+    const lottieShape = document.getElementById('lottie-morph-shape');
+    const lottieLabel = document.getElementById('lottie-state-label');
+    let lottieState = 0;
+
+    lottieBtn.addEventListener('click', () => {
+      lottieState = (lottieState + 1) % 3;
+      if (lottieState === 1) {
+        lottieShape.style.borderRadius = '9999px';
+        lottieShape.style.transform = 'rotate(180deg) scale(1.2)';
+        lottieShape.textContent = 'AI';
+        lottieLabel.textContent = 'State 02: Elastic Circle Morph';
+      } else if (lottieState === 2) {
+        lottieShape.style.borderRadius = '6px';
+        lottieShape.style.transform = 'rotate(45deg) scale(1.05)';
+        lottieShape.textContent = '3D';
+        lottieLabel.textContent = 'State 03: Isometric Diamond';
+      } else {
+        lottieShape.style.borderRadius = '12px';
+        lottieShape.style.transform = 'rotate(0deg) scale(1)';
+        lottieShape.textContent = 'SK';
+        lottieLabel.textContent = 'State 01: Base Vector Node';
+      }
+    });
+
+    // -----------------------------------------------------------------------
+    // 6. CV MODAL LOGIC
+    // -----------------------------------------------------------------------
+    const cvModal = document.getElementById('cv-modal');
+    document.getElementById('open-cv-modal-btn').addEventListener('click', () => {
+      cvModal.classList.remove('hidden');
+      cvModal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    });
+    document.getElementById('close-cv-modal').addEventListener('click', () => {
+      cvModal.classList.add('hidden');
+      cvModal.classList.remove('flex');
+      document.body.style.overflow = '';
+    });
+    cvModal.addEventListener('click', (e) => {
+      if (e.target === cvModal) {
+        cvModal.classList.add('hidden');
+        cvModal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // -----------------------------------------------------------------------
+    // 7. MOBILE MENU DRAWER TOGGLE
+    // -----------------------------------------------------------------------
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileDrawer = document.getElementById('mobile-menu-drawer');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isHidden = mobileDrawer.classList.contains('hidden');
+      mobileDrawer.classList.toggle('hidden', !isHidden);
+      iconOpen.classList.toggle('hidden', isHidden);
+      iconClose.classList.toggle('hidden', !isHidden);
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      });
+    });
+
+    // -----------------------------------------------------------------------
+    // 8. CLIPBOARD COPY & PROJECT INQUIRY FORM
+    // -----------------------------------------------------------------------
+    function showToast(msg) {
+      const toast = document.getElementById('toast-notification');
+      document.getElementById('toast-message').textContent = msg;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 2800);
+    }
+
+    function copyToClipboard(text, message) {
+      const tempInput = document.createElement('textarea');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        showToast(message);
+      } catch (err) {
+        showToast('Copied: ' + text);
+      }
+      document.body.removeChild(tempInput);
+    }
+
+    // Service Pill Selection inside Contact Form
+    let selectedInquiryService = 'Brand Identity';
+    document.querySelectorAll('.service-select-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.service-select-pill').forEach(p => {
+          p.classList.remove('bg-amberGold', 'text-obsidian', 'font-bold');
+          p.classList.add('bg-obsidian', 'border', 'border-white/10', 'text-neutral-300');
+        });
+        pill.classList.add('bg-amberGold', 'text-obsidian', 'font-bold');
+        pill.classList.remove('bg-obsidian', 'border', 'border-white/10', 'text-neutral-300');
+        selectedInquiryService = pill.textContent.trim();
+      });
+    });
+
+    document.getElementById('project-inquiry-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('inq-name').value.trim();
+      const brand = document.getElementById('inq-brand').value.trim();
+      const msg = document.getElementById('inq-message').value.trim();
+
+      const feedback = document.getElementById('form-feedback-text');
+      feedback.classList.remove('hidden');
+      showToast(`Thank you ${name}! Inquiry prepared for Sudheer Kade.`);
+
+      const whatsappText = encodeURIComponent(
+        `Hi Sudheer, I'm ${name}${brand ? ' from ' + brand : ''}. I'm interested in ${selectedInquiryService}. Project details: ${msg}`
+      );
+      setTimeout(() => {
+        window.open(`https://wa.me/918143607005?text=${whatsappText}`, '_blank', 'noopener,noreferrer');
+      }, 650);
+    });
+
+    // -----------------------------------------------------------------------
+    // 9. CUSTOM MAGNETIC CURSOR FOLLOWER (DESKTOP POINTER)
+    // -----------------------------------------------------------------------
+    const cursorEl = document.getElementById('custom-cursor');
+    const cursorLabel = document.getElementById('custom-cursor-label');
+    let mouseX = -100, mouseY = -100;
+    let cursorX = -100, cursorY = -100;
+
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      document.body.classList.add('custom-cursor-active');
+
+      window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      function animateCursor() {
+        cursorX += (mouseX - cursorX) * 0.22;
+        cursorY += (mouseY - cursorY) * 0.22;
+        cursorEl.style.left = `${cursorX}px`;
+        cursorEl.style.top = `${cursorY}px`;
+        requestAnimationFrame(animateCursor);
+      }
+      requestAnimationFrame(animateCursor);
+    }
+
+    function attachCursorHoverListeners() {
+      document.querySelectorAll('[data-cursor]').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          const text = el.getAttribute('data-cursor');
+          cursorEl.style.width = '68px';
+          cursorEl.style.height = '68px';
+          cursorEl.style.backgroundColor = '#F59E0B';
+          cursorEl.style.borderColor = '#F59E0B';
+          cursorLabel.textContent = text;
+          cursorLabel.style.opacity = '1';
+        });
+        el.addEventListener('mouseleave', () => {
+          cursorEl.style.width = '20px';
+          cursorEl.style.height = '20px';
+          cursorEl.style.backgroundColor = 'rgba(245, 158, 11, 0.1)';
+          cursorEl.style.borderColor = 'rgba(245, 158, 11, 0.8)';
+          cursorLabel.style.opacity = '0';
+        });
+      });
+    }
+
+    // -----------------------------------------------------------------------
+    // 10. MAGNETIC BUTTON SPRING PHYSICS & 3D TILT CARDS
+    // -----------------------------------------------------------------------
+    document.querySelectorAll('.magnetic-btn').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const relX = e.clientX - rect.left - rect.width / 2;
+        const relY = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${relX * 0.22}px, ${relY * 0.28}px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0px, 0px)';
+      });
+    });
+
+    function attachTiltListeners() {
+      document.querySelectorAll('.tilt-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -4.5;
+          const rotateY = ((x - centerX) / centerX) * 4.5;
+
+          card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+          card.style.setProperty('--glare-x', `${(x / rect.width) * 100}%`);
+          card.style.setProperty('--glare-y', `${(y / rect.height) * 100}%`);
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+        });
+      });
+    }
+
+    // -----------------------------------------------------------------------
+    // 11. SCROLL PROGRESS BAR, CAREER TIMELINE LINE & INTERSECTION REVEALS
+    // -----------------------------------------------------------------------
+    const scrollProgressBar = document.getElementById('scroll-progress-bar');
+    const careerContainer = document.getElementById('career-timeline-container');
+    const careerProgressLine = document.getElementById('career-progress-line');
+    const navPills = document.querySelectorAll('.nav-pill');
+    const sections = ['home', 'services', 'gallery', 'work', 'career', 'awards', 'reels'];
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      scrollProgressBar.style.width = `${scrollPercent}%`;
+
+      // Career Vertical Line Progress
+      if (careerContainer && careerProgressLine) {
+        const rect = careerContainer.getBoundingClientRect();
+        const viewMid = window.innerHeight * 0.65;
+        const progress = Math.min(Math.max((viewMid - rect.top) / rect.height, 0), 1);
+        careerProgressLine.style.height = `${progress * 100}%`;
+      }
+
+      // Active Nav Pill Spy
+      let currentSection = 'home';
+      sections.forEach(secId => {
+        const el = document.getElementById(secId);
+        if (el && scrollTop >= el.offsetTop - 220) {
+          currentSection = secId;
+        }
+      });
+
+      navPills.forEach(pill => {
+        if (pill.dataset.nav === currentSection) {
+          pill.classList.add('bg-amberGold', 'text-obsidian', 'font-semibold');
+          pill.classList.remove('text-neutral-300', 'hover:text-cream');
+        } else {
+          pill.classList.remove('bg-amberGold', 'text-obsidian', 'font-semibold');
+          pill.classList.add('text-neutral-300', 'hover:text-cream');
+        }
+      });
+    }, { passive: true });
+
+    // IntersectionObserver for Smooth Scroll Reveals
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal-up, .reveal-scale').forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    // Escape Key Closes Any Open Modal
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeBrandModal();
+        closeReelModal();
+        closeGalleryLightbox();
+        closeUploadModal();
+        cvModal.classList.add('hidden');
+        cvModal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Initialize Portfolio Grid & Interactive Listeners on Load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderMockupGallery('ALL');
+      renderBrands('ALL');
+      attachTiltListeners();
+      attachCursorHoverListeners();
+    });
+  </script>
+</body>
+</html>
